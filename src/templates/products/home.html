@@ -27,7 +27,7 @@
                     </div>
                     <div class="featured__controls">
                         <ul>
-                            <li class="active" data-filter=".*">All</li>
+                            <li class="active" data-filter="*">All</li>
 							<li data-filter=".fruits">Fruits</li>
                             <li data-filter=".vegetables">Vegetables</li>
                             <li data-filter=".meats">Meats</li>
@@ -161,8 +161,8 @@
                                 <div class="latest-product__slider owl-carousel">
 								
                                     <div class="latest-prdouct__slider__item">
-                                        {% for product in product|slice:"0:3" %}
-										{% if product.added_at|date:"d" >= timenow|date:"d"  %}
+                                        {% for product in latest_products|slice:"0:3" %}
+							
 										<a href="#" class="latest-product__item">
                                             <div class="latest-product__item__pic">
                                                 <img src="{{ product.image.url }}" alt="">
@@ -172,13 +172,12 @@
                                                 <span>{{ product.price }}DH</span>
                                             </div>
                                         </a>
-                                        {% endif %}
+                                       
 										{% endfor %}
 									</div>
-									
-                                    <div class="latest-prdouct__slider__item">
-									 {% for product in product|slice:"3:6" %}
-										{% if product.added_at|date:"d" >= timenow|date:"d"  %}
+									 <div class="latest-prdouct__slider__item">
+                                        {% for product in latest_products|slice:"3:6" %}
+							
 										<a href="#" class="latest-product__item">
                                             <div class="latest-product__item__pic">
                                                 <img src="{{ product.image.url }}" alt="">
@@ -188,25 +187,10 @@
                                                 <span>{{ product.price }}DH</span>
                                             </div>
                                         </a>
-                                        {% endif %}
-										{% endfor %}
                                        
-									   </div> <div class="latest-prdouct__slider__item">
-									 {% for product in product|slice:"6:9" %}
-										{% if product.added_at|date:"d" >= timenow|date:"d"  %}
-										<a href="#" class="latest-product__item">
-                                            <div class="latest-product__item__pic">
-                                                <img src="{{ product.image.url }}" alt="">
-                                            </div>
-                                            <div class="latest-product__item__text">
-                                                <h6>{{product.title}}</h6>
-                                                <span>{{ product.price }}DH</span>
-                                            </div>
-                                        </a>
-                                        {% endif %}
 										{% endfor %}
-                                       
-									   </div>
+									</div>
+                                     
 									   
                                 </div>
                             </div>
@@ -357,51 +341,24 @@
                 </div>
             </div>
             <div class="row">
+			{% for blog in blog %}
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="blog__item">
                         <div class="blog__item__pic">
-                            <img src="{% static 'img/blog/blog-1.jpg' %}" alt="">
+                            <img src="{{blog.image.url}}" alt="">
                         </div>
                         <div class="blog__item__text">
                             <ul>
-                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                                <li><i class="fa fa-calendar-o"></i> {{blog.created_at|date:"M d, Y"}}</li>
                                 <li><i class="fa fa-comment-o"></i> 5</li>
                             </ul>
-                            <h5><a href="#">Cooking tips make cooking simple</a></h5>
-                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                            <h5><a href="{% url 'blog:blog_details' blog.slug %}">{{blog.title}}</a></h5>
+                            <p>{{blog.description|slice:'0:80'}}</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <div class="blog__item">
-                        <div class="blog__item__pic">
-                            <img src="img/blog/blog-2.jpg" alt="">
-                        </div>
-                        <div class="blog__item__text">
-                            <ul>
-                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                <li><i class="fa fa-comment-o"></i> 5</li>
-                            </ul>
-                            <h5><a href="#">6 ways to prepare breakfast for 30</a></h5>
-                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <div class="blog__item">
-                        <div class="blog__item__pic">
-                            <img src="img/blog/blog-3.jpg" alt="">
-                        </div>
-                        <div class="blog__item__text">
-                            <ul>
-                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                <li><i class="fa fa-comment-o"></i> 5</li>
-                            </ul>
-                            <h5><a href="#">Visit the clean farm in the US</a></h5>
-                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                        </div>
-                    </div>
-                </div>
+				{% endfor %}
+               
             </div>
         </div>
     </section>

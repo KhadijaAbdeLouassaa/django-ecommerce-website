@@ -1,7 +1,8 @@
 from django.shortcuts import render,redirect,reverse
 from .models import Product
 from accounts.models import UserProfile
-from datetime import date
+from blog.models import Blog,Comment
+from datetime import datetime
 from django.core.paginator import Paginator
 from django.contrib import messages
 from django.core.mail import EmailMessage
@@ -10,7 +11,16 @@ from django.core.mail import EmailMessage
 
 def home(request):
     product = Product.objects.all()
-    return render(request, "products/home.html",{'product':product})
+    latest_products = Product.objects.filter(added_at__month=datetime.now().month )
+    blog = Blog.objects.all()
+    #length_comment = Comment.objects.filter(post)
+    
+    context = {'product':product,
+                'latest_products':latest_products,
+                'blog':blog,
+                #'length_comment':length_comment,
+                }
+    return render(request, "products/home.html",context)
     
     
 def search_product(request):
@@ -34,6 +44,7 @@ def products(request):
     page_num = request.GET.get('page')
     product = paginator.get_page(page_num)
     timenow = date.today()
+   
     
     return render(request,"products/products.html",{'product':product,'items':items,'timenow':timenow})
     

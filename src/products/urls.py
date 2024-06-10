@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path
-from . import views 
+from . import views
+from . import api 
 # creat your urls 
 
 app_name = 'products'
@@ -18,4 +19,5 @@ urlpatterns = [
     
     path('contact/', views.contact, name= 'contact'),
     
+    path('product_list_api/', api.product_list_api, name= 'product_list_api'),
 ]

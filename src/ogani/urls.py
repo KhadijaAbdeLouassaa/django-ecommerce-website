@@ -26,6 +26,7 @@ urlpatterns = [
     path('orders/', include('orders.urls', namespace= 'orders')),
     path('', include('products.urls', namespace= 'products')),
     path('blog/', include('blog.urls', namespace= 'blog')),
+    path('api-auth/', include('rest_framework.urls')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
