@@ -22,11 +22,15 @@ def add_to_cart(request,slug):
         order= Product.objects.get(slug=slug)
         user,created = Order.objects.get_or_create(order= order, user=request.user)
         
-        if request.method == 'GET':     
-            quantity = int(request.GET.get('qty'))
-            user.quantity += quantity
-            user.save()
-
+        if request.method == 'GET':
+            if request.GET.get('qty') == None:
+                user.quantity += 1
+                user.save()
+            else :
+                quantity = int(request.GET.get('qty'))
+                user.quantity += quantity
+                user.save()
+          
         return redirect("products:product_detail", slug=slug)
     else :
         redirect("products:home")

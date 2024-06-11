@@ -64,8 +64,8 @@
                                 <div class="latest-product__slider owl-carousel">
 								
                                     <div class="latest-prdouct__slider__item">
-                                        {% for item in items|slice:"0:3" %}
-										{% if item.added_at|date:"d" >= timenow|date:"d"  %}
+                                        {% for item in latest_products|slice:"0:3" %}
+										
 										<a href="#" class="latest-product__item">
                                             <div class="latest-product__item__pic">
                                                 <img src="{{ item.image.url }}" alt="">
@@ -75,13 +75,13 @@
                                                 <span>{{ item.price }}DH</span>
                                             </div>
                                         </a>
-                                        {% endif %}
+                                      
 										{% endfor %}
 									</div>
 									
                                     <div class="latest-prdouct__slider__item">
-									 {% for item in items|slice:"3:6" %}
-										{% if item.added_at|date:"d" <= timenow|date:"d"  %}
+									 {% for item in latest_products|slice:"3:6" %}
+										
 										<a href="#" class="latest-product__item">
                                             <div class="latest-product__item__pic">
                                                 <img src="{{ item.image.url }}" alt="">
@@ -91,12 +91,12 @@
                                                 <span>{{ item.price }}DH</span>
                                             </div>
                                         </a>
-                                        {% endif %}
+                                        
 										{% endfor %}
                                        
 									   </div> <div class="latest-prdouct__slider__item">
-									 {% for item in items|slice:"6:9" %}
-										{% if item.added_at|date:"d" <= timenow|date:"d"  %}
+									 {% for item in latest_products|slice:"6:9" %}
+										
 										<a href="#" class="latest-product__item">
                                             <div class="latest-product__item__pic">
                                                 <img src="{{ item.image.url }}" alt="">
@@ -106,7 +106,7 @@
                                                 <span>{{ item.price }}DH</span>
                                             </div>
                                         </a>
-                                        {% endif %}
+                                      
 										{% endfor %}
                                        
 									   </div>
@@ -251,9 +251,9 @@
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="{{ product.image.url }}">
                                     <ul class="product__item__pic__hover">
-                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                        <li><a href="{% url 'products:add_to_favorites' product.slug %}" ><i class="fa fa-heart"></i></a></li>
                                         <li><a href="{% url 'products:product_detail' product.slug %}"><i class="fa fa-retweet"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li><a href="{% url 'orders:add_to_cart' product.slug %}"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">

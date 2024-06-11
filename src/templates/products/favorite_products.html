@@ -140,7 +140,7 @@
                                     <ul class="product__item__pic__hover">
                                         <li><a href="{% url 'products:remove_from_favorites' product.slug %}"><i class="fa fa-trash"></i></a></li>
                                         <li><a href="{% url 'products:product_detail' product.slug %}"><i class="fa fa-retweet"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li><a href="{% url 'orders:add_to_cart' product.slug %}"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">

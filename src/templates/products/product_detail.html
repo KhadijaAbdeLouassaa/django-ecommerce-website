@@ -62,7 +62,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
-				<form method='GET' action="{% url 'orders:add_to_cart' product.slug %}">
+				<form method='GET' action=".">
 					
                     <div class="product__details__text">
                         <h3>{{ product.title}}</h3>
@@ -86,7 +86,7 @@
                         </div>
 					
                        <button type='submit 'class="primary-btn">ADD TO CARD</button>
-                        <a href="{% url 'products:add_to_favorites' product.slug %}" class="  heart-icon"><span class="icon_heart_alt"></span></a>
+                        <a href="{% url 'products:add_to_favorites' product.slug %}" class="heart-icon"><span class="icon_heart_alt"></span></a>
                         <ul>
                             <li><b>Availability</b> <span>In Stock</span></li>
                             <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
