@@ -2,12 +2,14 @@ from django.contrib import admin
 from django.urls import path
 from . import views
 from . import api 
+from django.utils.translation import gettext_lazy as _
+
 # creat your urls 
 
 app_name = 'products'
 
 urlpatterns = [
-    path('home/', views.home, name= 'home'),
+    path('', views.home, name= 'home'),
     path('products/', views.products, name= 'products'),
     path('product_detail/<slug>/', views.product_detail, name= 'product_detail'),
     path('categories/<str:ctg_id>/', views.categories, name= 'categories'),
@@ -19,5 +21,14 @@ urlpatterns = [
     
     path('contact/', views.contact, name= 'contact'),
     
-    path('product_list_api/', api.product_list_api, name= 'product_list_api'),
-]
+    path('add_reviews/<slug>/', views.add_reviews, name= 'add_reviews'),
+    
+    
+    path('categories_api/', api.CategoriesListApi.as_view()),
+    path('categories_api/<int:pk>/', api.SingleCategoriesApi.as_view()),
+    
+    path('product_api/', api.ProductListApi.as_view()),
+    path('product_api/<int:pk>/', api.SingleProductApi.as_view()),
+    
+    path('product_review_api/', api.ProductReviewListApi.as_view()),
+    ]

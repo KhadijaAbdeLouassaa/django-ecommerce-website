@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,16 +39,25 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
     'accounts',
     'orders',
     'products',
     'blog',
+    'compons',
+    
     'rest_framework',
+    
+    'rosetta',
+    'parler',
 ]
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -115,13 +125,35 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
+
+LANGUAGES = [('en','Engish'),('ar','Arabic')]
 
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
 USE_TZ = True
+
+
+
+# locale/
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]
+
+
+# django-parler settings
+PARLER_LANGUAGES = {
+    None: (
+    {'code': 'en'},
+    {'code': 'ar'},
+    ),
+    'default': {
+    'fallback': 'en',
+    'hide_untranslated': False,
+    }
+}
 
 
 # Static files (CSS, JavaScript, Images)
@@ -150,3 +182,23 @@ EMAIL_PORT = "587"
 EMAIL_HOST_USER = "Youremail@gmail.com"
 EMAIL_HOST_PASSWORD = "Your password"
 
+
+
+
+# payment section | Stripe
+
+# Publishable key
+STRIPE_PUBLISHABLE_KEY ='pk_test_51PUA67HjfnhNVn4SQeSKsfFAHtOOkgxQBXgj8uqaOVFhYCjvOLFgJdh0u6FpT45u13LfHPiPDUBpB79pxV0R44G500Z6ku1FSC'
+
+# Secret key
+STRIPE_SECRET_KEY = 'sk_test_51PUA67HjfnhNVn4SFuNQW84c4fCuW6cIO8ol91ADPm6sczjx879wv31TQW9X2CcRMR1SSzrSftTup4U1ZLMD6EJu00HqVkCnID' 
+STRIPE_API_VERSION = '2022-08-01'
+
+
+# rest_framework
+
+REST_FRAMEWORK = {
+'DEFAULT_PERMISSION_CLASSES': [
+'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+]
+}

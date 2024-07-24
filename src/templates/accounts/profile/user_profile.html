@@ -1,13 +1,12 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% block content %}
-<h4 class="text-center">My Profile</h4>
+<h4 class="text-center">{% trans 'My Profile' %}</h4>
 <br/>
 <div class= " container ">
 <h6 class="text-center">{{user.user.username}}</h6>
 <br/>
 <h6 class="text-center">{{user.user.email}}</h6>
-<br/>
-<h6 class="text-center">{{user.phone_number}}</h6>
 <hr/>
 
 </div>

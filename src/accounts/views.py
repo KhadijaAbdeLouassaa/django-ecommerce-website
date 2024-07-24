@@ -11,17 +11,15 @@ from products.models import Product
 def signup(request):
     if request.method == 'POST' and 'btn_signup' in request.POST :
         fullname = None
-        phone_num = None
         email = None
         password1 = None
         password2 = None
         
         if "fullname" in request.POST : fullname = request.POST['fullname']
-        if "phone_num" in request.POST : phone_num = request.POST['phone_num']
         if "email" in request.POST : email = request.POST['email']
         if "password1" in request.POST : password1 = request.POST['password1']
         if "password2" in request.POST : password2 = request.POST['password2']
-        if fullname and phone_num and email and password1 and password2 :
+        if fullname and email and password1 and password2 :
             if User.objects.filter(username=fullname).exists():
                 messages.add_message(request,messages.ERROR,"username alredy exist")
                
@@ -33,9 +31,7 @@ def signup(request):
                     user = User.objects.create_user(username=fullname,email=email,password=password2)
                     user.save
                     
-                    userprofile = UserProfile(user=user, phone_number=phone_num)
-                    userprofile.save()
-                 
+                    
                     return redirect("accounts:login")
                 else :
                     messages.add_message(request,messages.ERROR,"password must be same ")
@@ -121,6 +117,7 @@ def user_profile(request):
         return render(request,"accounts/profile/user_profile.html",{'user':user})
         
     else :
+        messages.add_message(request,messages.ERROR, "Please login ")
         return redirect("products:home")
         
 

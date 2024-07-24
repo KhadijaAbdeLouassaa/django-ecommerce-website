@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
 
 
@@ -9,10 +10,10 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Shopping Cart</h2>
+                        <h2>{% trans 'Shopping Cart' %}</h2>
                         <div class="breadcrumb__option">
-                            <a href="{% url 'products:home' %}">Home</a>
-                            <span>Shopping Cart</span>
+                            <a href="{% url 'products:home' %}">{% trans 'Home' %}</a>
+                            <span>{% trans 'Shopping Cart' %}</span>
                         </div>
                     </div>
                 </div>
@@ -24,19 +25,37 @@
     <!-- Shoping Cart Section Begin -->
     <section class="shoping-cart spad">
         <div class="container">
+		{% if order %}
+		
+							{% if messages %}
+							{% for msg in messages %}
+								<div {% if msg.tags %}
+										class= "text-center {{msg.tags}} alert alert-danger" role= "alert"
+									 {% endif %}
+								>
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
+								<path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5m.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+								</svg>
+								{{msg}}
+								</div>
+							
+								
+							{% endfor %}
+							{% endif %}
             <div class="row">
                 <div class="col-lg-12">
                     <div class="shoping__cart__table">
                         <table>
                             <thead>
                                 <tr>
-                                    <th class="shoping__product">Products</th>
-                                    <th>Price</th>
-                                    <th>Quantity</th>
+                                    <th class="shoping__product">{% trans 'Products' %}</th>
+                                    <th>{% trans 'Price' %}</th>
+                                    <th>{% trans 'Quantity' %}</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
+							
 							{% for item in order %}
 						
                                 <tr>
@@ -59,45 +78,186 @@
                                 </tr>
 								
 								{% endfor %}
+								
                                 </tbody>
                         </table>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="shoping__cart__btns">
-                        <a href="{% url 'products:products' %}" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
-                        <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
-                            Upadate Cart</a>
-                    </div>
-                </div>
                 <div class="col-lg-6">
-                    <div class="shoping__continue">
+                    <div class="shoping__cart__btns">
+                        <a href="{% url 'products:products' %}" class="primary-btn cart-btn">{% trans 'CONTINUE SHOPPING' %}</a>
+                         </div>
+                </div>
+				<div class="col-lg-6">
+				
+                   
                         <div class="shoping__discount">
-                            <h5>Discount Codes</h5>
-                            <form action="#">
-                                <input type="text" placeholder="Enter your coupon code">
-                                <button type="submit" class="site-btn">APPLY COUPON</button>
+                            
+                            <form method='POST' action="{% url 'compons:compon' %}">
+								{% csrf_token %} 
+                                <input type="text" placeholder="Enter your coupon code" name="compon">
+                                <button type="submit" class="site-btn">{% trans 'APPLY COUPON' %}</button>
                             </form>
                         </div>
-                    </div>
+                   
+
+				</div>
+				
+				 </div>
+				 <form method= 'POST' action=".">
+				  <div class="row">
+				   
+                <div class="col-lg-6">
+				
+					
+					 <div class="row">
+					<div class="checkout__form">
+                <h4>{% trans 'Billing Details' %}</h4>
+               
+				{% csrf_token %}
+                      <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>{% trans 'Full Name' %}<span>*</span></p>
+                                        <input type="text" name="full_name">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>{% trans 'Phone Number' %}<span>*</span></p>
+                                        <input type="text" name="phone_number">
+                                    </div>
+                                </div>
+                            </div>
+							
+							<div class="row">
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>{% trans 'Address 1' %}<span>*</span></p>
+                                        <input type="text" placeholder="Street Address" class="checkout__input__add" name="address1">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>{% trans 'Address 2' %}<span>*</span></p>
+                                        <input type="text" placeholder="Apartment, suite, unite ect (optinal)" name="address2">
+                                    </div>
+                                </div>
+                            </div>
+							
+							<div class="row">
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>{% trans 'Town/City' %}<span>*</span></p>
+                                        <input type="text" name="city">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>{% trans 'Postcode / ZIP' %}<span>*</span></p>
+                                        <input type="text" name="zip">
+                                    </div>
+                                </div>
+                            </div>
+							
+                            <div class="checkout__input">
+                                <p>{% trans 'Order notes' %}<span>*</span></p>
+                                <input type="text" placeholder="Notes about your order, e.g. special notes for delivery." name="order_note">
+								
+                            </div>
+                       
+               
+            </div>
+					</div>
                 </div>
                 <div class="col-lg-6">
                     <div class="shoping__checkout">
-                        <h5>Cart Total</h5>
+                        <h5>{% trans 'Cart Total' %}</h5>
                         <ul>
-                            <li>Subtotal <span>{{total}}DH</span></li>
-                            <li>Total <span>{{total}}DH</span></li>
+                            <li>{% trans 'Subtotal ' %}<span>{{subtotal}}DH</span></li>
+							{% if discount %}
+							<li>{% trans 'Discount ' %}<span class="text-success">-{{discount}}%</span></li>
+							{% endif %}
+                            <li>{% trans 'Total ' %}<span>{{total}}DH</span></li>
                         </ul>
-                        <a href="{% url 'orders:checkout' %}" class="primary-btn">PROCEED TO CHECKOUT</a>
+                        <button  type='submit' class="primary-btn" name='to_checkout_btn'>{% trans 'PROCEED TO CHECKOUT' %}</button>
                     </div>
                 </div>
+				 
+				 <div/>
+				</form>
+				
             </div>
+			{% else %}
+								<h3 class=" text-center ">{% trans 'empty cart !' %}</h3>
+								
+								{% endif %}
         </div>
     </section>
     <!-- Shoping Cart Section End -->
 
 {% endblock content %}
 
-  
+         <div class="checkout__form">
+                <h4>{% trans 'Billing Details' %}</h4>
+                <form method= 'POST' action="#">
+				{% csrf_token %}
+                    <div class="row">
+                        <div class="col-lg-8 col-md-6">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>{% trans 'Full Name' %}<span>*</span></p>
+                                        <input type="text" name="full_name">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>{% trans 'Phone Number' %}<span>*</span></p>
+                                        <input type="text" name="phone_number">
+                                    </div>
+                                </div>
+                            </div>
+							
+							<div class="row">
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>{% trans 'Address 1' %}<span>*</span></p>
+                                        <input type="text" placeholder="Street Address" class="checkout__input__add" name="address1">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>{% trans 'Address 2' %}<span>*</span></p>
+                                        <input type="text" placeholder="Apartment, suite, unite ect (optinal)" name="address2">
+                                    </div>
+                                </div>
+                            </div>
+							
+							<div class="row">
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>{% trans 'Town/City' %}<span>*</span></p>
+                                        <input type="text" name="city">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>{% trans 'Postcode / ZIP' %}<span>*</span></p>
+                                        <input type="text" name="zip">
+                                    </div>
+                                </div>
+                            </div>
+							
+                            <div class="checkout__input">
+                                <p>{% trans 'Order notes' %}<span>*</span></p>
+                                <input type="text" placeholder="Notes about your order, e.g. special notes for delivery." name="order_note">
+								
+                            </div>
+                        </div>
+                 
+                    </div>
+                </form>
+            </div>

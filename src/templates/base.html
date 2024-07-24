@@ -1,6 +1,8 @@
+{% load i18n %}
 {% load static %}
 <!DOCTYPE html>
-<html lang="zxx">
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+<html dir="{% if LANGUAGE_BIDI %} RTL {% else %} LTR {% endif %}" lang="{{ LANGUAGE_CODE }}">
 
 <head>
     <meta charset="UTF-8">
@@ -54,12 +56,28 @@
 					{% endif %}
 					</li>
 					
-					<li><a href="{% url 'accounts:signup' %}">Signup</a></li>
+					
 				</ul>
+				
 				</div>
-			 
+		        	 <li>
+							{% get_current_language as LANGUAGE_CODE %}
+							{% get_available_languages as LANGUAGES %}
+							{% get_language_info_list for LANGUAGES as languages %}
+							
+							{% for language in languages %}
+							
+							<a href="/{{ language.code }}/"
+							class="text-dark">
+							{% if language.code != LANGUAGE_CODE %}
+							{{ language.name_local }}
+							{% endif %}
+							</a>
+							
+							{% endfor %}
+					 </li>
                 </ul>
-						       
+				 	       
         </div>
        
         <nav class="humberger__menu__nav mobile-menu">
@@ -98,20 +116,20 @@
                 <div class="col-lg-6 ">
                     <nav class="header__menu ">
                         <ul>
-                            <li class="active"><a href="{% url 'products:home' %}">Home</a></li>
-                            <li><a href="{% url 'products:products' %}">Shop</a></li>
-							<li><a href="#">Categories</a>
+                            <li class="active"><a href="{% url 'products:home' %}">{% trans "Home" %}</a></li>
+                            <li><a href="{% url 'products:products' %}">{% trans "Shop" %}</a></li>
+							<li><a href="#">{% trans "Categories" %}</a>
                                <ul class="header__menu__dropdown">
-                                   <li><a href="{% url 'products:categories' 'Vegetables'%}">Vegetables</a></li>
-                                   <li><a href="{% url 'products:categories' 'Fruits'%}">Fruits</a></li>
-                                   <li><a href="{% url 'products:categories' 'Juice'%}">Juice</a></li>
-                                   <li><a href="{% url 'products:categories' 'Meats'%}">Meats</a></li>
-								   <li><a href="{% url 'products:categories' 'Fastfood'%}">Fastfood</a></li>
+                                   <li><a href="{% url 'products:categories' 'Vegetables'%}">{% trans 'Vegetables' %}</a></li>
+                                   <li><a href="{% url 'products:categories' 'Fruits'%}">{% trans 'Fruits' %}</a></li>
+                                   <li><a href="{% url 'products:categories' 'Juice'%}">{% trans 'Juice' %}</a></li>
+                                   <li><a href="{% url 'products:categories' 'Meats'%}">{% trans 'Meats' %}</a></li>
+								   <li><a href="{% url 'products:categories' 'Fastfood'%}">{% trans 'Fastfood' %}</a></li>
                                </ul>
                             </li>
                             
-                            <li><a href="{% url 'blog:blog' %}">Blog</a></li>
-                            <li><a href="{% url 'products:contact' %}">Contact</a></li>
+                            <li><a href="{% url 'blog:blog' %}">{% trans "Blog" %}</a></li>
+                            <li><a href="{% url 'products:contact' %}">{% trans "Contact" %}</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -127,19 +145,39 @@
 							<div class="header__top__right__language">
 							<a href="{% url 'accounts:user_profile' %}" class = "text-dark"><i class="fa fa-user "></i></a>
 							<ul>
-								<li><a href="{% url 'accounts:user_profile' %}">Profile</a></li>
+								<li><a href="{% url 'accounts:user_profile' %}"> {% trans 'Profile' %} </a></li>
 								<li>
 								{% if user.is_authenticated %}
-								<a href="{% url 'accounts:logout' %}">Logout</a>
+								<a href="{% url 'accounts:logout' %}"> {% trans 'Logout' %} </a>
 								{% elif not user.is_authenticated %}
-								<a href="{% url 'accounts:login' %}">Login</a>
+								<a href="{% url 'accounts:login' %}"> {% trans 'Login' %} </a>
 								{% endif %}
 								</li>
-								<li><a href="{% url 'accounts:signup' %}">Signup</a></li>
+								
 							</ul>
 							</div>
-						 
+						 <li>
+							{% get_current_language as LANGUAGE_CODE %}
+							{% get_available_languages as LANGUAGES %}
+							{% get_language_info_list for LANGUAGES as languages %}
+							
+							{% for language in languages %}
+							
+							<a href="/{{ language.code }}/"
+							class="text-dark">
+							{% if language.code != LANGUAGE_CODE %}
+							{{ language.name_local }}
+							{% endif %}
+							</a>
+							
+							{% endfor %}
+
+
+
+
+						 </li>
                         </ul>
+						
 						
                     </div>
                 </div>
@@ -154,22 +192,21 @@
     <!-- Hero Section Begin -->
     <section class="hero hero-normal">
         <div class="container">
+		
             <div class="row">
                 <div class="col-lg-3">
                     <div class="hero__categories">
                         <div class="hero__categories__all">
                             <i class="fa fa-bars"></i>
-                            <span>All departments</span>
+                            <span>{% trans 'All departments' %}</span>
                         </div>
                         <ul>
-                            <li><a href="{% url 'products:categories' 'Meats'%}">Meats</a></li>
-                            <li><a href="{% url 'products:categories' 'Vegetables'%}">Vegetables</a></li>
-                            <li><a href="{% url 'products:categories' 'Fruits'%}">Fruits</a></li>
-							<li><a href="{% url 'products:categories' 'Juice'%}">Juice</a></li>
-                            <li><a href="{% url 'products:categories' 'Fastfood'%}">Fastfood</a></li>
-                            <li><a href="#">Oatmeal</a></li>
-                            <li><a href="#">Butter & Eggs</a></li>
-                       
+                            <li><a href="{% url 'products:categories' 'Meats'%}">{% trans 'Meats' %}</a></li>
+                            <li><a href="{% url 'products:categories' 'Vegetables'%}">{% trans 'Vegetables' %}</a></li>
+                            <li><a href="{% url 'products:categories' 'Fruits'%}">{% trans 'Fruits' %}</a></li>
+							<li><a href="{% url 'products:categories' 'Juice'%}">{% trans 'Juice' %}</a></li>
+                            <li><a href="{% url 'products:categories' 'Fastfood'%}">{% trans 'Fastfood' %}</a></li>
+                            
                         </ul>
                     </div>
                 </div>
@@ -178,8 +215,8 @@
                         <div class="hero__search__form">
                             <form method = 'GET' action="{% url 'products:search_product' %}">
                                 
-                                <input type="text" name="q" placeholder="What do yo u need?">
-                                <button type="submit" class="site-btn">SEARCH</button>
+                                <input type="text" name="q" placeholder="{% trans 'What do yo u need?' %}">
+                                <button type="submit" class="site-btn">{% trans 'SEARCH' %}</button>
                             </form>
                         </div>
                         <div class="hero__search__phone">
@@ -188,10 +225,11 @@
                             </div>
                             <div class="hero__search__phone__text">
                                 <h5>+212 1.18.88.88</h5>
-                                <span>support 24/7 time</span>
+                                <span>{% trans 'support 24/7 time' %}</span>
                             </div>
                         </div>
                     </div>
+					
                     {% block cont %}
 	                {% endblock cont %}
                 </div>
@@ -213,27 +251,27 @@
                             <a href="./index.html"><img src="{% static 'img/logo.png' %}" alt=""></a>
                         </div>
                         <ul>
-                            <li>Address: 60-49 Road 11378 Tiznit</li>
-                            <li>Phone: +212 1.18.88.88</li>
-                            <li>Email: ogani@gmail.com</li>
+                            <li>{% trans 'Address: 60-49 Road 11378 Tiznit' %}</li>
+                            <li>{% trans 'Phone: +212 1.18.88.88' %}</li>
+                            <li>{% trans 'Email: ogani@gmail.com' %}</li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
                     <div class="footer__widget">
-                        <h6>Useful Links</h6>
+                        <h6>{% trans 'Useful Links' %}</h6>
                         <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">About Our Shop</a></li>
-                            <li><a href="#">Secure Shopping</a></li>
-                            <li><a href="#">Delivery infomation</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Our Sitemap</a></li>
+                            <li><a href="#">{% trans 'About Us' %}</a></li>
+                            <li><a href="#">{% trans 'About Our Shop' %}</a></li>
+                            <li><a href="#">{% trans 'Secure Shopping' %}</a></li>
+                            <li><a href="#">{% trans 'Delivery infomation' %}</a></li>
+                            <li><a href="#">{% trans 'Privacy Policy' %}</a></li>
+                            <li><a href="#">{% trans 'Our Sitemap' %}</a></li>
                         </ul>
                         <ul>
-                            <li><a href="#">Who We Are</a></li>
-                            <li><a href="#">Our Services</a></li> 
-                            <li><a href="{% url 'products:contact' %}">Contact</a></li>
+                            <li><a href="#">{% trans 'Who We Are' %}</a></li>
+                            <li><a href="#">{% trans 'Our Services' %}</a></li> 
+                            <li><a href="{% url 'products:contact' %}">{% trans 'Contact' %}</a></li>
                             
                            
                         </ul>
@@ -241,11 +279,11 @@
                 </div>
                 <div class="col-lg-4 col-md-12">
                     <div class="footer__widget">
-                        <h6>Join Our Newsletter Now</h6>
-                        <p>Get E-mail updates about our latest shop and special offers.</p>
+                        <h6>{% trans 'Join Our Newsletter Now' %}</h6>
+                        <p>{% trans 'Get E-mail updates about our latest shop and special offers.' %}</p>
                         <form action="#">
-                            <input type="text" placeholder="Enter your mail">
-                            <button type="submit" class="site-btn">Subscribe</button>
+                            <input type="text" placeholder="{% trans 'Enter your mail' %}">
+                            <button type="submit" class="site-btn">{% trans 'Subscribe' %}</button>
                         </form>
                         <div class="footer__widget__social">
                             <a href="#"><i class="fa fa-facebook"></i></a>
@@ -260,7 +298,7 @@
                 <div class="col-lg-12">
                     <div class="footer__copyright">
                         <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | <i class="fa fa-heart" aria-hidden="true"></i>
+  {% trans 'Copyright' %} &copy;<script>document.write(new Date().getFullYear());</script>{% trans ' All rights reserved | ' %}<i class="fa fa-heart" aria-hidden="true"></i>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
                         <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
                     </div>

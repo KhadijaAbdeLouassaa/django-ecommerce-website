@@ -1,4 +1,5 @@
 {% extends 'base.html'%}
+{% load i18n %}
 {% load static %}
 {% block content %}
 
@@ -6,12 +7,13 @@
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section set-bg" data-setbg="{% static 'img/breadcrumb.jpg' %}">
         <div class="container">
+		
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
                         <h2>{{ product.category}}’s Package</h2>
                         <div class="breadcrumb__option">
-                            <a href="{% url 'products:home' %}">Home</a>
+                            <a href="{% url 'products:home' %}">{% trans 'Home' %}</a>
 							
 							<a href="
 							{% if product.category == 'Meats' %}
@@ -38,7 +40,20 @@
         </div>
     </section>
     <!-- Breadcrumb Section End -->
-
+{% if messages %}
+				{% for msg in messages %}
+				<div {% if msg.tags %}
+					 class= " text-center {{msg.tags}} alert alert-danger" role="alert"
+				     {% endif %}
+				>
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
+				<path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5m.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+				</svg>
+				
+				{{msg}}
+				</div>
+				{% endfor %}
+				{% endif %}
     <!-- Product Details Section Begin -->
     <section class="product-details spad">
         <div class="container">
@@ -62,7 +77,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
-				<form method='GET' action=".">
+				<form method='GET' action="{% url 'orders:add_to_cart' product.slug %}" >
 					
                     <div class="product__details__text">
                         <h3>{{ product.title}}</h3>
@@ -85,13 +100,14 @@
                             </div>
                         </div>
 					
-                       <button type='submit 'class="primary-btn">ADD TO CARD</button>
+                       <button type='submit'class="primary-btn" >{% trans 'ADD TO CARD' %}</button>
                         <a href="{% url 'products:add_to_favorites' product.slug %}" class="heart-icon"><span class="icon_heart_alt"></span></a>
+						</form>
                         <ul>
-                            <li><b>Availability</b> <span>In Stock</span></li>
-                            <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
-                            <li><b>Weight</b> <span>0.5 kg</span></li>
-                            <li><b>Share on</b>
+                            <li><b>{% trans 'Availability' %}</b> <span>{% trans 'In Stock' %}</span></li>
+                            <li><b>{% trans 'Shipping' %}</b> <span>{% trans '01 day shipping.' %} <samp>{% trans 'Free pickup today' %}</samp></span></li>
+                            <li><b>{% trans 'Weight' %}</b> <span>{% trans '0.5 kg' %}</span></li>
+                            <li><b>{% trans 'Share on' %}</b>
                                 <div class="share">
                                     <a href="#"><i class="fa fa-facebook"></i></a>
                                     <a href="#"><i class="fa fa-twitter"></i></a>
@@ -101,28 +117,28 @@
                             </li>
                         </ul>
                     </div>
-						</form>
+						
                 </div>
                 <div class="col-lg-12">
                     <div class="product__details__tab">
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab"
-                                    aria-selected="true">Description</a>
+                                    aria-selected="true">{% trans 'Description' %}</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab"
-                                    aria-selected="false">Information</a>
+                                    aria-selected="false">{% trans 'Information' %}</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
-                                    aria-selected="false">Reviews <span>(1)</span></a>
+                                    aria-selected="false">{% trans 'Reviews' %} <span>({{reviews|length}})</span></a>
                             </li>
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" id="tabs-1" role="tabpanel">
                                 <div class="product__details__tab__desc">
-                                    <h6>Products Infomation</h6>
+                                    <h6>{% trans 'Products Infomation' %}</h6>
                                     <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
                                         Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus. Vivamus
                                         suscipit tortor eget felis porttitor volutpat. Vestibulum ac diam sit amet quam
@@ -145,7 +161,7 @@
                             </div>
                             <div class="tab-pane" id="tabs-2" role="tabpanel">
                                 <div class="product__details__tab__desc">
-                                    <h6>Products Infomation</h6>
+                                    <h6>{% trans 'Products Infomation' %}</h6>
                                     <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
                                         Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus.
                                         Vivamus suscipit tortor eget felis porttitor volutpat. Vestibulum ac diam
@@ -166,18 +182,38 @@
                             </div>
                             <div class="tab-pane" id="tabs-3" role="tabpanel">
                                 <div class="product__details__tab__desc">
-                                    <h6>Products Infomation</h6>
-                                    <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
-                                        Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus.
-                                        Vivamus suscipit tortor eget felis porttitor volutpat. Vestibulum ac diam
-                                        sit amet quam vehicula elementum sed sit amet dui. Donec rutrum congue leo
-                                        eget malesuada. Vivamus suscipit tortor eget felis porttitor volutpat.
-                                        Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent
-                                        sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ac
-                                        diam sit amet quam vehicula elementum sed sit amet dui. Vestibulum ante
-                                        ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-                                        Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.
-                                        Proin eget tortor risus.</p>
+								<div class=" row ">
+								<div class="col-8">
+								{% if reviews %}
+								{% for review in reviews %}
+									
+									<h6>{{review.user.username}}<span> {{review.created_at|date:'Y-m-d'}}</span></h6>
+                                    <p> {{review.reviews}} </p>
+									<hr/>
+									{% endfor %}
+										{% else %}
+										<h6> {% trans 'no reviews yet' %} </h6>
+											{% endif %}
+                               </div>
+								<div class="col-4">
+								 
+								 <div class="blog__sidebar__item py-0 contact-form spad">
+                                <form method= 'POST' action="{% url 'products:add_reviews' product.slug  %}">
+						    	{% csrf_token %}
+                        <textarea placeholder="{% trans 'Your review' %}" name="user_review"></textarea>
+                        <button type="submit" class="site-btn">{% trans 'Add' %}</button>
+						</form>
+                  </div>
+						
+								</div>
+								</div>
+                                </div>
+					        	
+								
+				        		<div/>
+								
+								
+									
                                 </div>
                             </div>
                         </div>
@@ -194,7 +230,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title related__product__title">
-                        <h2>Related Product</h2>
+                        <h2>{% trans 'Related Product' %}</h2>
                     </div>
                 </div>
             </div>

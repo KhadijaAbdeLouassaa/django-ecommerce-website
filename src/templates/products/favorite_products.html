@@ -1,4 +1,5 @@
 {% extends 'base.html'%}
+{% load i18n %}
 {% load static %}
 {% block content %}
 
@@ -13,10 +14,10 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Favorite Products</h2>
+                        <h2>{% trans 'Favorite Products' %}</h2>
                         <div class="breadcrumb__option">
-                            <a href="{% url 'products:home'%}">Home</a>
-                            <span>Favorits</span>
+                            <a href="{% url 'products:home'%}">{% trans 'Home' %}</a>
+                            <span>{% trans 'Favorits' %}</span>
                         </div>
                     </div>
                 </div>
@@ -28,24 +29,23 @@
     <!-- Product Section Begin -->
     <section class="product spad">
         <div class="container">
+		{% if favorite_product %}
             <div class="row">
                 <div class="col-lg-3 col-md-5">
                     <div class="sidebar">
                         <div class="sidebar__item">
-                            <h4>Department</h4>
+                            <h4>{% trans 'Department' %}</h4>
                             <ul>
-                                <li><a href="{% url 'products:categories' 'Meats'%}">Meats</a></li>
-								<li><a href="{% url 'products:categories' 'Vegetables'%}">Vegetables</a></li>
-								<li><a href="{% url 'products:categories' 'Fruits'%}">Fruits</a></li>
-								<li><a href="{% url 'products:categories' 'Juice'%}">Juice</a></li>
-								<li><a href="{% url 'products:categories' 'Fastfood'%}">Fastfood</a></li>
-								<li><a href="#">Oatmeal</a></li>
-								<li><a href="#">Butter & Eggs</a></li>
-                       
+                                <li><a href="{% url 'products:categories' 'Meats'%}">{% trans 'Meats' %}</a></li>
+								<li><a href="{% url 'products:categories' 'Vegetables'%}">{% trans 'Vegetables' %}</a></li>
+								<li><a href="{% url 'products:categories' 'Fruits'%}">{% trans 'Fruits' %}</a></li>
+								<li><a href="{% url 'products:categories' 'Juice'%}">{% trans 'Juice' %}</a></li>
+								<li><a href="{% url 'products:categories' 'Fastfood'%}">{% trans 'Fastfood' %}</a></li>
+								
                             </ul>
                         </div>
                         <div class="sidebar__item">
-                            <h4>Price</h4>
+                            <h4>{% trans 'Price' %}</h4>
                             <div class="price-range-wrap">
                                 <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
                                     data-min="3" data-max="540">
@@ -63,7 +63,7 @@
                         </div>
                          <div class="sidebar__item">
                             <div class="latest-product__text">
-                                <h4>Latest Products</h4>
+                                <h4>{% trans 'Latest Products' %}</h4>
                                 <div class="latest-product__slider owl-carousel">
 								
                                     <div class="latest-prdouct__slider__item">
@@ -126,7 +126,7 @@
                            
                             <div class="col-lg-4 col-md-12 ">
                                 <div class="filter__found">
-                                    <h6><span>{{items|length}}</span> Products found</h6>
+                                    <h6><span>{{items|length}}</span>{% trans ' Products found' %}</h6>
                                 </div>
                             </div>
 
@@ -167,6 +167,9 @@
 					{% endif %}
                 </div>
             </div>
+			{% else %}
+						<h3 class=" text-center ">{% trans 'empty !' %}</h3>
+			{% endif %}	
         </div>
     </section>
     <!-- Product Section End -->

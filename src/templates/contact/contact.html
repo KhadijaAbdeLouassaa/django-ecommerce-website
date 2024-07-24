@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load i18n %}
 {% block content %}
 
     <!-- Breadcrumb Section Begin -->
@@ -8,10 +8,10 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Contact Us</h2>
+                        <h2>{% trans 'Contact Us' %}</h2>
                         <div class="breadcrumb__option">
-                            <a href="./index.html">Home</a>
-                            <span>Contact Us</span>
+                            <a href="./index.html">{% trans 'Home' %}</a>
+                            <span>{% trans 'Contact Us' %}</span>
                         </div>
                     </div>
                 </div>
@@ -27,29 +27,29 @@
                 <div class="col-lg-3 col-md-3 col-sm-6 text-center">
                     <div class="contact__widget">
                         <span class="icon_phone"></span>
-                        <h4>Phone</h4>
+                        <h4>{% trans 'Phone' %}</h4>
                         <p>+212 1.18.88.88</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 text-center">
                     <div class="contact__widget">
                         <span class="icon_pin_alt"></span>
-                        <h4>Address</h4>
-                        <p>60-49 Road 11378 Tiznit</p>
+                        <h4>{% trans 'Address' %}</h4>
+                        <p>{% trans '60-49 Road 11378 Tiznit' %}</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 text-center">
                     <div class="contact__widget">
                         <span class="icon_clock_alt"></span>
-                        <h4>Open time</h4>
-                        <p>10:00 am to 23:00 pm</p>
+                        <h4>{% trans 'Open time' %}</h4>
+                        <p>{% trans '10:00 am to 23:00 pm' %}</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 text-center">
                     <div class="contact__widget">
                         <span class="icon_mail_alt"></span>
-                        <h4>Email</h4>
-                        <p>ogani@gmail.com</p>
+                        <h4>{% trans 'Email' %}</h4>
+                        <p>{% trans 'ogani@gmail.com' %}</p>
                     </div>
                 </div>
             </div>
@@ -65,7 +65,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="contact__form__title">
-                        <h2>Leave Message</h2>
+                        <h2>{% trans 'Leave Message' %}</h2>
 						{% if messages %}
 						{% for msg in messages %}
 						<div {% if msg.tags %}
@@ -87,14 +87,14 @@
 			{% csrf_token %} 
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
-                        <input type="text" placeholder="Your name" name="username">
+                        <input type="text" placeholder="{% trans 'Your name' %}" name="username">
                     </div>
                     <div class="col-lg-6 col-md-6">
-                        <input type="email" placeholder="Your Email" name="user_email">
+                        <input type="email" placeholder="{% trans 'Your Email' %}" name="user_email">
                     </div>
                     <div class="col-lg-12 text-center">
-                        <textarea placeholder="Your message" name="user_message"></textarea>
-                        <button type="submit" class="site-btn" name="btn_send_msg">SEND MESSAGE</button>
+                        <textarea placeholder="{% trans 'Your message' %}" name="user_message"></textarea>
+                        <button type="submit" class="site-btn" name="btn_send_msg">{% trans 'SEND MESSAGE' %}</button>
                     </div>
                 </div>
             </form>

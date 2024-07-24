@@ -7,7 +7,7 @@ from .models import Blog,Comment
 class BlogModelAdmin(admin.ModelAdmin):
     list_display = ['title', 'category', 'created_at', 'image']
     
-    
+   
 @admin.register(Comment)
 class CommentModelAdmin(admin.ModelAdmin):
     list_display = ['post', 'commenter', 'created_at']

@@ -11,5 +11,5 @@ class OrderModelAdmin(admin.ModelAdmin):
     
 @admin.register(Checkout)
 class CheckoutModelAdmin(admin.ModelAdmin):
-    list_display = ['user','phone_number', 'city']
+    list_display = ['user','phone_number', 'city', 'paid']
     

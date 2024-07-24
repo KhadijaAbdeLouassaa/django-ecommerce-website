@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load i18n %}
 {% block content %}
  <!-- Breadcrumb Section Begin -->
     
@@ -12,20 +12,18 @@
                 <div class="col-lg-3 col-md-5">
                     <div class="sidebar">
                         <div class="sidebar__item">
-                            <h4>Department</h4>
+                            <h4>{% trans 'Department' %}</h4>
                             <ul>
-                                <li><a href="{% url 'products:categories' 'Meats'%}">Meats</a></li>
-								<li><a href="{% url 'products:categories' 'Vegetables'%}">Vegetables</a></li>
-								<li><a href="{% url 'products:categories' 'Fruits'%}">Fruits</a></li>
-								<li><a href="{% url 'products:categories' 'Juice'%}">Juice</a></li>
-								<li><a href="{% url 'products:categories' 'Fastfood'%}">Fastfood</a></li>
-								<li><a href="#">Oatmeal</a></li>
-								<li><a href="#">Butter & Eggs</a></li>
-                       
+                                <li><a href="{% url 'products:categories' 'Meats'%}">{% trans 'Meats' %}</a></li>
+								<li><a href="{% url 'products:categories' 'Vegetables'%}">{% trans 'Vegetables' %}</a></li>
+								<li><a href="{% url 'products:categories' 'Fruits'%}">{% trans 'Fruits' %}</a></li>
+								<li><a href="{% url 'products:categories' 'Juice'%}">{% trans 'Juice' %}</a></li>
+								<li><a href="{% url 'products:categories' 'Fastfood'%}">{% trans 'Fastfood' %}</a></li>
+								
                             </ul>
                         </div>
                         <div class="sidebar__item">
-                            <h4>Price</h4>
+                            <h4>{% trans 'Price' %}</h4>
                             <div class="price-range-wrap">
                                 <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
                                     data-min="3" data-max="540">
@@ -50,7 +48,7 @@
                            
                             <div class="col-lg-4 col-md-12 ">
                                 <div class="filter__found">
-                                    <h6><span>{{search|length}}</span> Products found</h6>
+                                    <h6><span>{{search|length}}</span> {% trans 'Products found' %}</h6>
                                 </div>
                             </div>
 
@@ -77,7 +75,7 @@
                         </div>
 						{% endfor %} 
 						{% else %}
-						<h5>Not Found!</h5>						
+						<h5>{% trans 'Not Found!' %}</h5>						
 						{% endif %}
                     </div>
 					{% if searched.has_other_pages %}

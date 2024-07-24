@@ -1,11 +1,12 @@
 from django.shortcuts import render,redirect,reverse
-from .models import Product
+from .models import Product,ProductReview,Categories
 from accounts.models import UserProfile
 from blog.models import Blog
 from datetime import datetime
 from django.core.paginator import Paginator
 from django.contrib import messages
 from django.core.mail import EmailMessage
+from django.utils import timezone
 # Create your views here.
 
 
@@ -13,7 +14,8 @@ def home(request):
     product = Product.objects.all()
     latest_products = Product.objects.filter(added_at__month=(datetime.now().month)-1 )
     blog = Blog.objects.all()
-    
+    for post in blog :
+        post.comment_count = post.comment_set.count()
     context = {'product':product,
                 'latest_products':latest_products,
                 'blog':blog,
@@ -42,7 +44,11 @@ def products(request):
     paginator = Paginator(items,6)
     page_num = request.GET.get('page')
     product = paginator.get_page(page_num)
-    latest_products = Product.objects.filter(added_at__month=(datetime.now().month)-1 )
+    latest_products = Product.objects.filter(added_at__month=(datetime.now().month) )
+    for item in items :
+        if item.discount > 0 :
+            item.discount_percent = 100 * (item.price-item.discount )//item.price
+            
    
     
     return render(request,"products/products.html",{'product':product,'items':items,'latest_products':latest_products})
@@ -51,16 +57,31 @@ def products(request):
 def product_detail(request,slug):
     product = Product.objects.get(slug = slug)
     related_pro = Product.objects.filter(category = product.category)
-    return render(request,"products/product_detail.html",{'product':product,'related_pro':related_pro})
+    reviews = ProductReview.objects.filter(product=product)
+        
+    return render(request,"products/product_detail.html",{'product':product,'related_pro':related_pro,'reviews':reviews})
+   
+   
+def add_reviews(request, slug):
+    product = Product.objects.get(slug = slug)
+    if request.user.is_authenticated :
+        if request.method == 'POST' and 'user_review' in request.POST : 
+            user_review = request.POST['user_review']
+            if user_review :
+                ProductReview.objects.create(user=request.user,product=product,reviews=user_review)
+    else : messages.add_message(request,messages.ERROR, "Please login ")
     
-    
-    
+    return redirect('products:product_detail',slug=slug)  
+   
+   
 def categories(request, ctg_id):
-    category = Product.objects.filter(category = ctg_id )
-    paginator = Paginator(category,6)
+    category = Categories.objects.get(name = ctg_id )
+    product = Product.objects.filter(category=category)
+    
+    paginator = Paginator(product,6)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    return render(request, "products/categories.html",{'category':page_obj})
+    return render(request, "products/categories.html",{'product':page_obj,'category_name':product})
     
     
 def favorite_products_page(request):  
@@ -73,6 +94,7 @@ def favorite_products_page(request):
         
         return render(request,"products/favorite_products.html", {'favorite_product':favorite_product,'items':items})
     else :
+        messages.add_message(request,messages.ERROR, "Please login ")
         return redirect("products:home")
     
     
@@ -84,11 +106,14 @@ def add_to_favorites(request, slug):
         else :
             user = UserProfile.objects.get(user = request.user)
             user.favorite_products.add(favorite_product)
-            
-        return redirect('products:product_detail',slug=slug)
+            now = timezone.now()
+       
     else :
-        return redirect("products:home")
+        messages.add_message(request,messages.ERROR, "Please login ")
       
+    return redirect('products:product_detail',slug=slug) 
+
+    
 def remove_from_favorites(request, slug):
     product = Product.objects.get(slug=slug)
     user = UserProfile.objects.get(user = request.user)

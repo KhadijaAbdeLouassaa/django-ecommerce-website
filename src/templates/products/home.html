@@ -1,14 +1,29 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 {% block cont %}
-
 <div class = " mt-2">
+{% if messages %}
+				{% for msg in messages %}
+				<div {% if msg.tags %}
+					 class= " text-center {{msg.tags}} alert alert-danger" role="alert"
+				     {% endif %}
+				>
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
+				<path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5m.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+				</svg>
+				
+				{{msg}}
+				</div>
+				{% endfor %}
+				{% endif %}
+
                     <div class="hero__item set-bg" data-setbg="{% static 'img/hero/banner.jpg' %}">
                         <div class="hero__text">
-                            <span>FRUIT FRESH</span>
-                            <h2>Vegetable <br />100% Organic</h2>
-                            <p>Free Pickup and Delivery Available</p>
-                            <a href="{% url 'products:products'%}" class="primary-btn">SHOP NOW</a>
+                            <span>{% trans 'FRUIT FRESH' %}</span>
+                            <h2>{% trans 'Vegetable' %} <br />100% {% trans 'Organic' %}</h2>
+                            <p>{% trans 'Free Pickup and Delivery Available' %}</p>
+                            <a href="{% url 'products:products'%}" class="primary-btn">{% trans 'SHOP NOW' %}</a>
                         </div>
                     </div>
 </div>
@@ -23,16 +38,16 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Featured Product</h2>
+                        <h2>{% trans 'Featured Product' %}</h2>
                     </div>
                     <div class="featured__controls">
                         <ul>
-                            <li class="active" data-filter="*">All</li>
-							<li data-filter=".fruits">Fruits</li>
-                            <li data-filter=".vegetables">Vegetables</li>
-                            <li data-filter=".meats">Meats</li>
-                            <li data-filter=".fastfood">Fastfood</li>
-                            <li data-filter=".juice">Juice</li>
+                            <li class="active" data-filter="*">{% trans 'All' %}</li>
+							<li data-filter=".fruits">{% trans 'Fruits' %}</li>
+                            <li data-filter=".vegetables">{% trans 'Vegetables' %}</li>
+                            <li data-filter=".meats">{% trans 'Meats' %}</li>
+                            <li data-filter=".fastfood">{% trans 'Fastfood' %}</li>
+                            <li data-filter=".juice">{% trans 'Juice' %}</li>
                         </ul>
                     </div>
                 </div>
@@ -40,7 +55,7 @@
             <div class="row featured__filter">
 			
 				{% for product in product %}
-				{% if product.category == 'Fruits'%}
+				{% if product.category.name == 'Fruits'%}
                 <div class="col-lg-3 col-md-4 col-sm-6 mix fruits ">
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="{{product.image.url}}">
@@ -56,7 +71,7 @@
                         </div>
                     </div>
                 </div>
-				{% elif product.category == 'Vegetables'%}
+				{% elif product.category.name == 'Vegetables'%}
                 <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables ">
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="{{product.image.url}}">
@@ -72,7 +87,7 @@
                         </div>
                     </div>
                 </div>
-				{% elif product.category == 'Meats'%}
+				{% elif product.category.name == 'Meats'%}
                 <div class="col-lg-3 col-md-4 col-sm-6 mix meats ">
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="{{product.image.url}}">
@@ -89,7 +104,7 @@
                     </div>
                 </div>
 				
-				{% elif product.category == 'Fastfood'%}
+				{% elif product.category.name == 'Fastfood'%}
                 <div class="col-lg-3 col-md-4 col-sm-6 mix fastfood ">
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="{{product.image.url}}">
@@ -105,7 +120,7 @@
                         </div>
                     </div>
                 </div>
-				{% elif product.category == 'Juice'%}
+				{% elif product.category.name == 'Juice'%}
                 <div class="col-lg-3 col-md-4 col-sm-6 mix juice ">
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="{{product.image.url}}">
@@ -157,7 +172,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="latest-product__text">
-                                <h4>Latest Products</h4>
+                                <h4>{% trans 'Latest Products' %}</h4>
                                 <div class="latest-product__slider owl-carousel">
 								
                                     <div class="latest-prdouct__slider__item">
@@ -197,7 +212,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="latest-product__text">
-                        <h4>Top Rated Products</h4>
+                        <h4>{% trans 'Top Rated Products' %}</h4>
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
                                 <a href="#" class="latest-product__item">
@@ -262,7 +277,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="latest-product__text">
-                        <h4>Review Products</h4>
+                        <h4>{% trans 'Review Products' %}</h4>
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
                                 <a href="#" class="latest-product__item">
@@ -336,23 +351,23 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title from-blog__title">
-                        <h2>From The Blog</h2>
+                        <h2>{% trans 'From The Blog' %}</h2>
                     </div>
                 </div>
             </div>
             <div class="row">
-			{% for blog in blog %}
+			{% for post in blog %}
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="blog__item">
                         <div class="blog__item__pic">
-                            <img src="{{blog.image.url}}" alt="">
+                            <img src="{{post.image.url}}" alt="">
                         </div>
                         <div class="blog__item__text">
                             <ul>
-                                <li><i class="fa fa-calendar-o"></i> {{blog.created_at|date:"M d, Y"}}</li>
-                                <li><i class="fa fa-comment-o"></i> 5</li>
+                                <li><i class="fa fa-calendar-o"></i> {{post.created_at|date:"M d, Y"}}</li>
+                                <li><i class="fa fa-comment-o"></i> {{ post.comment_count}}</li>
                             </ul>
-                            <h5><a href="{% url 'blog:blog_details' blog.slug %}">{{blog.title}}</a></h5>
+                            <h5><a href="{% url 'blog:blog_details' post.slug %}">{{post.title}}</a></h5>
                             <p>{{blog.description|slice:'0:80'}}</p>
                         </div>
                     </div>

@@ -6,8 +6,9 @@ from django.contrib.auth.models import User
 CATEGORY = [('Food','Food'),('Beauty','Beauty'),('Life Style','Life Style'),('Travel','Travel')]
 
 class Blog(models.Model):
-    title = models.CharField(max_length=100)
-    description = models.TextField()
+   
+    title = models.CharField(max_length=100,blank=True)
+    description = models.TextField(blank=True)     
     image = models.ImageField(upload_to="blog_images")
     created_at = models.DateField(auto_now=True)
     category =  models.CharField(max_length=15, choices=CATEGORY)
@@ -24,6 +25,6 @@ class Blog(models.Model):
 class Comment(models.Model):
     post = models.ForeignKey(Blog,on_delete=models.CASCADE)
     commenter = models.ForeignKey(User,on_delete= models.CASCADE)
-    comment = models.TextField()
+    comment = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now=True)
-    
+        

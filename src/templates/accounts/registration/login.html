@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% block content %}
 
     
@@ -33,20 +34,22 @@
                
 				 <div class="row d-flex justify-content-center align-items-center  ">
                     <div class="col-12 col-md-12 col-lg-12 col-xl-12">
-                        <input type="text" placeholder="Full Name" name="fullname">
+                        <input type="text" placeholder="{% trans 'Full Name' %}" name="fullname">
                     </div>
                     
                     
                 </div>
 				<div class="row d-flex justify-content-center align-items-center  ">
                     <div class="col-12 col-md-12 col-lg-12 col-xl-12">
-                        <input type="password" placeholder="Password" name="password">
-						<p><a href= "{% url 'accounts:reset_password' %}" class= "text-dark">forget password?</a></p>
+                        <input type="password" placeholder="{% trans 'Password' %}" name="password">
+						<p><a href= "{% url 'accounts:reset_password' %}" class= "text-dark">{% trans 'forget password?' %}</a></p>
                     </div>
-                    <button type="submit" class="site-btn" name="btn_login">LOGIN</button>
-                    
+                    <button type="submit" class="site-btn" name="btn_login">{% trans 'LOGIN' %}</button>
+					
                 </div>
-				
+				<hr/>
+				<p class="text-center">{% trans 'Do not have an account?' %}<a href= "{% url 'accounts:signup' %}" class= "text-dark"> {% trans 'Sign up' %}</a></p>
+                    
 		    </div>
 				
 			</div>

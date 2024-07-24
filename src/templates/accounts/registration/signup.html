@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% block content %}
 
     
@@ -9,7 +10,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="contact__form__title">
-                        <h2>Signup</h2>
+                        <h2>{% trans 'Signup' %}</h2>
 						
                     </div>
                 </div>
@@ -33,30 +34,31 @@
 				{% endfor %}
 				{% endif %}
                 <div class="row d-flex justify-content-center align-items-center  mb-1">
-                    <div class="col-12 col-md-8 col-lg-6 col-xl-6">
-                        <input type="text" placeholder="Full Name" name="fullname">
-                    </div>
-                    <div class="col-12 col-md-8 col-lg-6 col-xl-6">
-                        <input type="text" placeholder="Phone Number" name="phone_num">
+                    <div class="col-12 col-md-8 col-lg-12 col-xl-12">
+                        <input type="text" placeholder="{% trans 'Full Name' %}" name="fullname">
                     </div>
                     
                 </div>
 				 <div class="row d-flex justify-content-center align-items-center  ">
                     <div class="col-12 col-md-12 col-lg-12 col-xl-12">
-                        <input type="email" placeholder="Email" name="email">
+                        <input type="email" placeholder="{% trans 'Email' %}" name="email">
                     </div>
                     
                     
                 </div>
 				 <div class="row d-flex justify-content-center align-items-center  ">
                     <div class="col-12 col-md-8 col-lg-6 col-xl-6">
-                        <input type="password" placeholder="Password" name="password1">
+                        <input type="password" placeholder="{% trans 'Password' %}" name="password1">
                     </div>
                     <div class="col-12 col-md-8 col-lg-6 col-xl-6">
-                        <input type="password" placeholder=" Confirm Password" name="password2">
+                        <input type="password" placeholder=" {% trans 'Confirm Password' %}" name="password2">
                     </div>
-                    <button type="submit" class="site-btn" name="btn_signup">SIGNUP</button>
+                    <button type="submit" class="site-btn" name="btn_signup">{% trans 'SIGNUP' %}</button>
+					
                 </div>
+				<hr/>
+				<p class="text-center">{% trans 'Have an account?' %}<a href= "{% url 'accounts:login' %}" class= "text-dark"> {% trans 'Login' %}</a></p>
+                    
 				
 		    </div>
 				

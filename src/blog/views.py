@@ -1,6 +1,7 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from .models import Blog,Comment
 from django.core.paginator import Paginator
+from django.contrib import messages
 # Create your views here.
 
 
@@ -8,13 +9,16 @@ from django.core.paginator import Paginator
 def blog(request): 
     paginator = Paginator(Blog.objects.all(),4)
     page_num = request.GET.get('page')
-    post = paginator.get_page(page_num)
-    return render(request,"blog/blog.html",{'post':post})
+    posts = paginator.get_page(page_num)
+    for post in posts :
+        post.comment_count = post.comment_set.count()
+    
+    return render(request,"blog/blog.html",{'posts':posts})
     
     
     
 def blog_details(request,slug):
-    post_details = Blog.objects.get(slug=slug)
+    post_details = get_object_or_404(Blog,slug=slug)
     post = Blog.objects.all()        
     post_comments = Comment.objects.filter(post=post_details)# to get only that post comments
     
@@ -51,15 +55,20 @@ def search_blog(request):
         
 def post_comment(request,slug):
     post =Blog.objects.get(slug=slug)
-    
-    if request.method == 'POST' and 'user_comment' in request.POST :
-       
-        comment = request.POST['user_comment']
-        comment_add,created = Comment.objects.get_or_create(commenter= request.user, comment = comment ,post=post)
-        
-        return redirect("blog:blog_details", slug=slug)        
+    if request.user.is_authenticated :
+        if request.method == 'POST' and 'user_comment' in request.POST :
+            if 'user_comment' in request.POST != '':
+                comment = request.POST['user_comment']
+                comment_add,created = Comment.objects.get_or_create(commenter= request.user, comment = comment ,post=post)
+            else :
+                messages.add_message(request,messages.ERROR, "Please write something")
+                
+            return redirect("blog:blog_details", slug=slug)        
+              
     else :
-        return render(request,"blog/blog.html")
+       messages.add_message(request,messages.ERROR, "Please login ")
+       return redirect("blog:blog_details", slug=slug)        
+        
     
     
     
