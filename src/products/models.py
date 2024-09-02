@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 
-#CATEGORY = [('Vegetables','Vegetables'), ('Fruits','Fruits'), ('Meats','Meats'),('Fastfood','Fastfood'),('Juice','Juice')]
 
 class Categories(models.Model):
     name = models.CharField(max_length= 40)
