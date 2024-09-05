@@ -12,7 +12,7 @@ from django.utils import timezone
 
 def home(request):
     product = Product.objects.all()
-    latest_products = Product.objects.filter(added_at__month=(datetime.now().month)-1 )
+    latest_products = Product.objects.filter(added_at__month=(datetime.now().month) )
     blog = Blog.objects.all()
     for post in blog :
         post.comment_count = post.comment_set.count()

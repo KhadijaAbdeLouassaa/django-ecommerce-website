@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-w6-@=z7y6odeejhs@^#6o0k7dx_oa3(z=qwj2w(bmx*5qmwisj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -81,6 +81,8 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 # products/context_processors.py/item_length
                 'products.context_processors.item_length',
+                # products/context_processors.py/category
+                'products.context_processors.category',
                 # orders/context_processors.py/order_length
                 'orders.context_processors.order_length',
                 # blog/context_processors.py/category_length
@@ -165,7 +167,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
     "/var/www/static/",
 ]
-STATIC_ROOT = "/var/www/example.com/static/"
+
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR/"media" 
 

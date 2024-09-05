@@ -1,5 +1,5 @@
 from accounts.models import UserProfile
-
+from .models import Categories
 # add your context processor function here
 # len of item that your want to show in all html templates 
 # don't forget to add the path to settings.py !
@@ -17,3 +17,7 @@ def item_length(request):
     # default value   
     return {'item_length':0}
     
+def category(request):
+    categories = Categories.objects.all()
+
+    return {'categories':categories}

@@ -86,11 +86,9 @@
                 <li><a href="{% url 'products:products'%}">Shop</a></li>
                 <li><a href="{% url 'products:categories' 'Vegetables'%}">Categories</a>
                     <ul class="header__menu__dropdown">
-                        <li><a href="{% url 'products:categories' 'Vegetables'%}">Vegetables</a></li>
-                        <li><a href="{% url 'products:categories' 'Fruits'%}">Fruits</a></li>
-                        <li><a href="{% url 'products:categories' 'Juice'%}">Juice</a></li>
-                        <li><a href="{% url 'products:categories' 'Meats'%}">Meats</a></li>
-				        <li><a href="{% url 'products:categories' 'Fastfood'%}">Fastfood</a></li>
+					{% for category in categories  %}
+                        <li><a href="{% url 'products:categories' category.name %}">{{category.name}}</a></li>
+                    {% endfor %}
                     </ul>
                 </li>
                 <li><a href="{% url 'blog:blog' %}">Blog</a></li>
@@ -120,11 +118,9 @@
                             <li><a href="{% url 'products:products' %}">{% trans "Shop" %}</a></li>
 							<li><a href="#">{% trans "Categories" %}</a>
                                <ul class="header__menu__dropdown">
-                                   <li><a href="{% url 'products:categories' 'Vegetables'%}">{% trans 'Vegetables' %}</a></li>
-                                   <li><a href="{% url 'products:categories' 'Fruits'%}">{% trans 'Fruits' %}</a></li>
-                                   <li><a href="{% url 'products:categories' 'Juice'%}">{% trans 'Juice' %}</a></li>
-                                   <li><a href="{% url 'products:categories' 'Meats'%}">{% trans 'Meats' %}</a></li>
-								   <li><a href="{% url 'products:categories' 'Fastfood'%}">{% trans 'Fastfood' %}</a></li>
+                                   {% for category in categories  %}
+									<li><a href="{% url 'products:categories' category.name %}">{{category.name}}</a></li>
+									{% endfor %}
                                </ul>
                             </li>
                             
@@ -201,12 +197,9 @@
                             <span>{% trans 'All departments' %}</span>
                         </div>
                         <ul>
-                            <li><a href="{% url 'products:categories' 'Meats'%}">{% trans 'Meats' %}</a></li>
-                            <li><a href="{% url 'products:categories' 'Vegetables'%}">{% trans 'Vegetables' %}</a></li>
-                            <li><a href="{% url 'products:categories' 'Fruits'%}">{% trans 'Fruits' %}</a></li>
-							<li><a href="{% url 'products:categories' 'Juice'%}">{% trans 'Juice' %}</a></li>
-                            <li><a href="{% url 'products:categories' 'Fastfood'%}">{% trans 'Fastfood' %}</a></li>
-                            
+                            {% for category in categories  %}
+								<li><a href="{% url 'products:categories' category.name %}">{{category.name}}</a></li>
+							{% endfor %} 
                         </ul>
                     </div>
                 </div>

@@ -17,12 +17,9 @@
                         <div class="sidebar__item">
                             <h4>{% trans 'Department' %}</h4>
                             <ul>
-                                <li><a href="{% url 'products:categories' 'Meats'%}">{% trans 'Meats' %}</a></li>
-								<li><a href="{% url 'products:categories' 'Vegetables'%}">{% trans 'Vegetables' %}</a></li>
-								<li><a href="{% url 'products:categories' 'Fruits'%}">{% trans 'Fruits' %}</a></li>
-								<li><a href="{% url 'products:categories' 'Juice'%}">{% trans 'Juice' %}</a></li>
-								<li><a href="{% url 'products:categories' 'Fastfood'%}">{% trans 'Fastfood' %}</a></li>
-								
+                                {% for category in categories  %}
+									<li><a href="{% url 'products:categories' category.name %}">{{category.name}}</a></li>
+								{% endfor %}
                             </ul>
                         </div>
                         <div class="sidebar__item">

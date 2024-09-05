@@ -43,11 +43,9 @@
                     <div class="featured__controls">
                         <ul>
                             <li class="active" data-filter="*">{% trans 'All' %}</li>
-							<li data-filter=".fruits">{% trans 'Fruits' %}</li>
-                            <li data-filter=".vegetables">{% trans 'Vegetables' %}</li>
-                            <li data-filter=".meats">{% trans 'Meats' %}</li>
-                            <li data-filter=".fastfood">{% trans 'Fastfood' %}</li>
-                            <li data-filter=".juice">{% trans 'Juice' %}</li>
+							{% for ctg in categories %}
+							<li data-filter=".{{ctg.name}}">{{ctg.name}}</li>
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>
@@ -55,73 +53,9 @@
             <div class="row featured__filter">
 			
 				{% for product in product %}
-				{% if product.category.name == 'Fruits'%}
-                <div class="col-lg-3 col-md-4 col-sm-6 mix fruits ">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="{{product.image.url}}">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="{% url 'products:product_detail' product.slug %}"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6>{{ product.title}}</h6>
-                            <h5>{{ product.price}}DH</h5>
-                        </div>
-                    </div>
-                </div>
-				{% elif product.category.name == 'Vegetables'%}
-                <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables ">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="{{product.image.url}}">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="{% url 'products:product_detail' product.slug %}"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6>{{ product.title}}</h6>
-                            <h5>{{ product.price}}DH</h5>
-                        </div>
-                    </div>
-                </div>
-				{% elif product.category.name == 'Meats'%}
-                <div class="col-lg-3 col-md-4 col-sm-6 mix meats ">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="{{product.image.url}}">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="{% url 'products:product_detail' product.slug %}"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6>{{ product.title}}</h6>
-                            <h5>{{ product.price}}DH</h5>
-                        </div>
-                    </div>
-                </div>
-				
-				{% elif product.category.name == 'Fastfood'%}
-                <div class="col-lg-3 col-md-4 col-sm-6 mix fastfood ">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="{{product.image.url}}">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="{% url 'products:product_detail' product.slug %}"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6>{{ product.title}}</h6>
-                            <h5>{{ product.price}}DH</h5>
-                        </div>
-                    </div>
-                </div>
-				{% elif product.category.name == 'Juice'%}
-                <div class="col-lg-3 col-md-4 col-sm-6 mix juice ">
+				{% for ctg in categories %}
+				{% if product.category.name == ctg.name %}
+                <div class="col-lg-3 col-md-4 col-sm-6 mix {{ctg.name}} ">
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="{{product.image.url}}">
                             <ul class="featured__item__pic__hover">
@@ -138,7 +72,8 @@
                 </div>
 				
 				{% endif %}
-				
+				{% endfor %}
+                
 				{% endfor %}
                 
                
@@ -176,35 +111,52 @@
                                 <div class="latest-product__slider owl-carousel">
 								
                                     <div class="latest-prdouct__slider__item">
-                                        {% for product in latest_products|slice:"0:3" %}
-							
+                                        {% for item in latest_products|slice:"0:3" %}
+										
 										<a href="#" class="latest-product__item">
                                             <div class="latest-product__item__pic">
-                                                <img src="{{ product.image.url }}" alt="">
+                                                <img src="{{ item.image.url }}" alt="">
                                             </div>
                                             <div class="latest-product__item__text">
-                                                <h6>{{product.title}}</h6>
-                                                <span>{{ product.price }}DH</span>
+                                                <h6>{{item.title}}</h6>
+                                                <span>{{ item.price }}DH</span>
                                             </div>
                                         </a>
-                                       
+                                      
 										{% endfor %}
 									</div>
-									 <div class="latest-prdouct__slider__item">
-                                        {% for product in latest_products|slice:"3:6" %}
-							
+									
+                                    <div class="latest-prdouct__slider__item">
+									 {% for item in latest_products|slice:"3:6" %}
+										
 										<a href="#" class="latest-product__item">
                                             <div class="latest-product__item__pic">
-                                                <img src="{{ product.image.url }}" alt="">
+                                                <img src="{{ item.image.url }}" alt="">
                                             </div>
                                             <div class="latest-product__item__text">
-                                                <h6>{{product.title}}</h6>
-                                                <span>{{ product.price }}DH</span>
+                                                <h6>{{item.title}}</h6>
+                                                <span>{{ item.price }}DH</span>
                                             </div>
                                         </a>
-                                       
+                                        
 										{% endfor %}
-									</div>
+                                       
+									   </div> <div class="latest-prdouct__slider__item">
+									 {% for item in latest_products|slice:"6:9" %}
+										
+										<a href="#" class="latest-product__item">
+                                            <div class="latest-product__item__pic">
+                                                <img src="{{ item.image.url }}" alt="">
+                                            </div>
+                                            <div class="latest-product__item__text">
+                                                <h6>{{item.title}}</h6>
+                                                <span>{{ item.price }}DH</span>
+                                            </div>
+                                        </a>
+                                      
+										{% endfor %}
+                                       
+									   </div>
                                      
 									   
                                 </div>
