@@ -1,0 +1,780 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-07-17 19:34+0000\n"
+"PO-Revision-Date: 2024-07-17 20:13+0000\n"
+"Last-Translator:   <oganiwebsite@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Translated-Using: django-rosetta 0.9.8\n"
+
+#: .\templates\accounts\profile\user_profile.html:4
+msgid "My Profile"
+msgstr "الملف الشخصي"
+
+#: .\templates\accounts\registration\login.html:37
+#: .\templates\accounts\registration\signup.html:38
+#: .\templates\orders\shoping_cart.html:123
+#: .\templates\orders\shoping_cart.html:212
+msgid "Full Name"
+msgstr "الإسم الكامل"
+
+#: .\templates\accounts\registration\login.html:44
+#: .\templates\accounts\registration\signup.html:51
+msgid "Password"
+msgstr "كلمة المرور"
+
+#: .\templates\accounts\registration\login.html:45
+msgid "forget password?"
+msgstr "نسيت كلمة المرور؟"
+
+#: .\templates\accounts\registration\login.html:47
+msgid "LOGIN"
+msgstr "تسجيل الدخول"
+
+#: .\templates\accounts\registration\login.html:51
+msgid "Do not have an account?"
+msgstr "ليس لديك حساب?"
+
+#: .\templates\accounts\registration\login.html:51
+#, fuzzy
+#| msgid "Signup"
+msgid "Sign up"
+msgstr "انشاء حساب"
+
+#: .\templates\accounts\registration\password_reset_form.html:13
+msgid "Change Password"
+msgstr "تغيير كلمة المرور"
+
+#: .\templates\accounts\registration\password_reset_form.html:41
+msgid "Usrname or Email"
+msgstr "أدخل البريد الخاص بك"
+
+#: .\templates\accounts\registration\password_reset_form.html:48
+msgid " New Password"
+msgstr "كلمة المرور الجديدة"
+
+#: .\templates\accounts\registration\password_reset_form.html:56
+msgid "Confirm New Password"
+msgstr "تأكيد كلمة المرور الجديدة"
+
+#: .\templates\accounts\registration\password_reset_form.html:59
+msgid "DONE"
+msgstr "تم"
+
+#: .\templates\accounts\registration\password_reset_sent.html:13
+msgid "check to your email"
+msgstr "أدخل البريد الخاص بك"
+
+#: .\templates\accounts\registration\reset_password.html:13
+msgid "Reset Password"
+msgstr "إعادة تعيين كلمة المرور"
+
+#: .\templates\accounts\registration\reset_password.html:41
+#: .\templates\contact\contact.html:93
+msgid "Your Email"
+msgstr "أدخل البريد الخاص بك"
+
+#: .\templates\accounts\registration\reset_password.html:43
+msgid "RESET"
+msgstr "إعادة ضبط"
+
+#: .\templates\accounts\registration\signup.html:13
+msgid "Signup"
+msgstr "انشاء حساب"
+
+#: .\templates\accounts\registration\signup.html:44
+#: .\templates\contact\contact.html:51
+msgid "Email"
+msgstr "البريد إلكتروني"
+
+#: .\templates\accounts\registration\signup.html:54
+msgid "Confirm Password"
+msgstr "تأكيد كلمة المرور"
+
+#: .\templates\accounts\registration\signup.html:56
+msgid "SIGNUP"
+msgstr "اشتراك"
+
+#: .\templates\accounts\registration\signup.html:60
+msgid "Have an account?"
+msgstr "هل لديك حساب?"
+
+#: .\templates\accounts\registration\signup.html:60 .\templates\base.html:153
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+#: .\templates\base.html:119 .\templates\blog\blog.html:15
+#: .\templates\blog\categories.html:15 .\templates\blog\search_blog.html:15
+#: .\templates\contact\contact.html:13 .\templates\orders\checkout.html:14
+#: .\templates\orders\shoping_cart.html:15
+#: .\templates\products\favorite_products.html:19
+#: .\templates\products\product_detail.html:16
+#: .\templates\products\products.html:16
+msgid "Home"
+msgstr "الرئيسية"
+
+#: .\templates\base.html:120 .\templates\products\products.html:17
+msgid "Shop"
+msgstr "المنتجات"
+
+#: .\templates\base.html:121 .\templates\blog\blog.html:38
+#: .\templates\blog\blog_detail.html:38 .\templates\blog\categories.html:38
+#: .\templates\blog\search_blog.html:38
+msgid "Categories"
+msgstr "الفئات"
+
+#: .\templates\base.html:123 .\templates\base.html:205
+#: .\templates\products\categories.html:21
+#: .\templates\products\favorite_products.html:40
+#: .\templates\products\home.html:47 .\templates\products\products.html:36
+#: .\templates\products\search_product.html:18
+msgid "Vegetables"
+msgstr "خضر"
+
+#: .\templates\base.html:124 .\templates\base.html:206
+#: .\templates\products\categories.html:22
+#: .\templates\products\favorite_products.html:41
+#: .\templates\products\home.html:46 .\templates\products\products.html:37
+#: .\templates\products\search_product.html:19
+msgid "Fruits"
+msgstr "فواكه"
+
+#: .\templates\base.html:125 .\templates\base.html:207
+#: .\templates\products\categories.html:23
+#: .\templates\products\favorite_products.html:42
+#: .\templates\products\home.html:50 .\templates\products\products.html:38
+#: .\templates\products\search_product.html:20
+msgid "Juice"
+msgstr "عصير"
+
+#: .\templates\base.html:126 .\templates\base.html:204
+#: .\templates\products\categories.html:20
+#: .\templates\products\favorite_products.html:39
+#: .\templates\products\home.html:48 .\templates\products\products.html:35
+#: .\templates\products\search_product.html:17
+msgid "Meats"
+msgstr "لحوم"
+
+#: .\templates\base.html:127 .\templates\base.html:208
+#: .\templates\products\categories.html:24
+#: .\templates\products\favorite_products.html:43
+#: .\templates\products\home.html:49 .\templates\products\products.html:39
+#: .\templates\products\search_product.html:21
+msgid "Fastfood"
+msgstr "وجبات سريعة"
+
+#: .\templates\base.html:131 .\templates\blog\blog.html:13
+#: .\templates\blog\blog.html:16 .\templates\blog\categories.html:13
+#: .\templates\blog\categories.html:16 .\templates\blog\search_blog.html:13
+#: .\templates\blog\search_blog.html:16
+msgid "Blog"
+msgstr "مدونة"
+
+#: .\templates\base.html:132 .\templates\base.html:274
+msgid "Contact"
+msgstr "اتصل"
+
+#: .\templates\base.html:148
+msgid "Profile"
+msgstr "الملف الشخصي"
+
+#: .\templates\base.html:151
+msgid "Logout"
+msgstr "تسجيل الخروج"
+
+#: .\templates\base.html:201
+msgid "All departments"
+msgstr "جميع الفئات"
+
+#: .\templates\base.html:218
+msgid "What do yo u need?"
+msgstr "ما الذي تحتاج إليه؟"
+
+#: .\templates\base.html:219
+msgid "SEARCH"
+msgstr "بحث"
+
+#: .\templates\base.html:228
+msgid "support 24/7 time"
+msgstr "دعم 24/7 الوقت"
+
+#: .\templates\base.html:254
+msgid "Address: 60-49 Road 11378 Tiznit"
+msgstr "العنوان: 60-49 طريق 11378 تزنيت"
+
+#: .\templates\base.html:255
+msgid "Phone: +212 1.18.88.88"
+msgstr "الهاتف: +212 1.18.88.88"
+
+#: .\templates\base.html:256
+msgid "Email: ogani@gmail.com"
+msgstr "البريد الإلكتروني: ogani@gmail.com"
+
+#: .\templates\base.html:262
+msgid "Useful Links"
+msgstr "روابط مفيدة"
+
+#: .\templates\base.html:264
+msgid "About Us"
+msgstr "معلومات عنا"
+
+#: .\templates\base.html:265
+msgid "About Our Shop"
+msgstr "حول متجرنا"
+
+#: .\templates\base.html:266
+msgid "Secure Shopping"
+msgstr "التسوق الآمن"
+
+#: .\templates\base.html:267
+msgid "Delivery infomation"
+msgstr "معلومات التسليم"
+
+#: .\templates\base.html:268
+msgid "Privacy Policy"
+msgstr "سياسة الخصوصية"
+
+#: .\templates\base.html:269
+msgid "Our Sitemap"
+msgstr "سياسة الخصوصية"
+
+#: .\templates\base.html:272
+msgid "Who We Are"
+msgstr "سياسة الخصوصية"
+
+#: .\templates\base.html:273
+msgid "Our Services"
+msgstr "خدماتنا"
+
+#: .\templates\base.html:282
+msgid "Join Our Newsletter Now"
+msgstr "انضم إلى نشرتنا الإخبارية الآن"
+
+#: .\templates\base.html:283
+msgid "Get E-mail updates about our latest shop and special offers."
+msgstr ""
+"احصل على تحديثات عبر البريد الإلكتروني حول أحدث متجرنا والعروض الخاصة."
+
+#: .\templates\base.html:285
+msgid "Enter your mail"
+msgstr "أدخل البريد الخاص بك"
+
+#: .\templates\base.html:286
+msgid "Subscribe"
+msgstr "اشترك"
+
+#: .\templates\base.html:301
+msgid "Copyright"
+msgstr "حقوق النشر"
+
+#: .\templates\base.html:301
+msgid " All rights reserved | "
+msgstr "جميع الحقوق محفوظة |"
+
+#: .\templates\blog\blog.html:40 .\templates\blog\blog_detail.html:40
+#: .\templates\blog\categories.html:40 .\templates\blog\search_blog.html:40
+#: .\templates\products\home.html:45
+msgid "All"
+msgstr "الكل"
+
+#: .\templates\blog\blog.html:41 .\templates\blog\blog_detail.html:41
+#: .\templates\blog\categories.html:41
+msgid "Beauty"
+msgstr "الجمال"
+
+#: .\templates\blog\blog.html:42 .\templates\blog\blog_detail.html:42
+msgid "Food "
+msgstr "الأكل"
+
+#: .\templates\blog\blog.html:43 .\templates\blog\blog_detail.html:43
+#: .\templates\blog\categories.html:43
+msgid "Life Style "
+msgstr "نمط الحياة"
+
+#: .\templates\blog\blog.html:44
+msgid "Travel "
+msgstr "السفر"
+
+#: .\templates\blog\blog.html:66 .\templates\blog\categories.html:66
+#: .\templates\blog\search_blog.html:97
+msgid "READ MORE "
+msgstr "اقرأ المزيد"
+
+#: .\templates\blog\blog_detail.html:16 .\templates\blog\blog_detail.html:50
+msgid "Comments"
+msgstr "تعليقات"
+
+#: .\templates\blog\blog_detail.html:33 .\templates\blog\categories.html:33
+#: .\templates\blog\search_blog.html:33
+msgid "Search..."
+msgstr "بحث..."
+
+#: .\templates\blog\blog_detail.html:44 .\templates\blog\categories.html:44
+#: .\templates\blog\search_blog.html:44
+#, fuzzy
+#| msgid "Travel "
+msgid "Travel"
+msgstr "السفر"
+
+#: .\templates\blog\blog_detail.html:68 .\templates\contact\contact.html:96
+msgid "Your message"
+msgstr "رسالتك"
+
+#: .\templates\blog\blog_detail.html:69
+#: .\templates\products\product_detail.html:204
+msgid "Add"
+msgstr "إضافة"
+
+#: .\templates\blog\blog_detail.html:108
+#, fuzzy
+#| msgid "Categories"
+msgid "Categories:"
+msgstr "الفئات"
+
+#: .\templates\blog\blog_detail.html:109
+msgid "Tags:"
+msgstr "الكلمات الدلالية:"
+
+#: .\templates\blog\blog_detail.html:134
+msgid "Post You May Like"
+msgstr "مشاركة قد تعجبك"
+
+#: .\templates\blog\categories.html:42 .\templates\blog\search_blog.html:42
+#, fuzzy
+#| msgid "Food "
+msgid "Food"
+msgstr "الأكل"
+
+#: .\templates\blog\search_blog.html:41
+#, fuzzy
+#| msgid "Beauty"
+msgid "Beauty "
+msgstr "الجمال"
+
+#: .\templates\blog\search_blog.html:43
+#, fuzzy
+#| msgid "Life Style "
+msgid "Life Style"
+msgstr "نمط الحياة"
+
+#: .\templates\blog\search_blog.html:48
+msgid "Recent News"
+msgstr "أخبار حديثة"
+
+#: .\templates\blog\search_blog.html:55
+#, fuzzy
+#| msgid "Vegetables"
+msgid "09 Kinds Of Vegetables"
+msgstr "خضر"
+
+#: .\templates\blog\search_blog.html:55
+msgid "Protect The Liver"
+msgstr "حماية الكبد"
+
+#: .\templates\blog\search_blog.html:56 .\templates\blog\search_blog.html:65
+#: .\templates\blog\search_blog.html:74
+msgid "MAR 05, 2019"
+msgstr "05 مارس 2019"
+
+#: .\templates\blog\search_blog.html:64
+msgid "Tips You To Balance"
+msgstr "نصائح لك لتحقيق التوازن"
+
+#: .\templates\blog\search_blog.html:64
+msgid "Nutrition Meal Day"
+msgstr "يوم التغذية"
+
+#: .\templates\blog\search_blog.html:73
+msgid "4 Principles Help You Lose "
+msgstr "4 مبادئ تساعدك على الخسارة"
+
+#: .\templates\blog\search_blog.html:73
+#, fuzzy
+#| msgid "Vegetables"
+msgid "Weight With Vegetables"
+msgstr "خضر"
+
+#: .\templates\contact\contact.html:11 .\templates\contact\contact.html:14
+#, fuzzy
+#| msgid "Contact"
+msgid "Contact Us"
+msgstr "اتصل"
+
+#: .\templates\contact\contact.html:30
+msgid "Phone"
+msgstr "هاتف"
+
+#: .\templates\contact\contact.html:37
+#, fuzzy
+#| msgid "Address 1"
+msgid "Address"
+msgstr "العنوان 1"
+
+#: .\templates\contact\contact.html:38
+#, fuzzy
+#| msgid "Address: 60-49 Road 11378 Tiznit"
+msgid "60-49 Road 11378 Tiznit"
+msgstr "العنوان: 60-49 طريق 11378 تزنيت"
+
+#: .\templates\contact\contact.html:44
+msgid "Open time"
+msgstr "وقت متاح"
+
+#: .\templates\contact\contact.html:45
+msgid "10:00 am to 23:00 pm"
+msgstr "10:00 صباحا إلى 23:00 مساءا"
+
+#: .\templates\contact\contact.html:52
+#, fuzzy
+#| msgid "Email: ogani@gmail.com"
+msgid "ogani@gmail.com"
+msgstr "البريد الإلكتروني: ogani@gmail.com"
+
+#: .\templates\contact\contact.html:68
+msgid "Leave Message"
+msgstr "اترك رسالة"
+
+#: .\templates\contact\contact.html:90
+msgid "Your name"
+msgstr "اسمك"
+
+#: .\templates\contact\contact.html:97
+msgid "SEND MESSAGE"
+msgstr "إرسال رسالة"
+
+#: .\templates\orders\cancel_payment.html:13
+msgid "Your payment has not been processed"
+msgstr "لم تتم معالجة دفعتك"
+
+#: .\templates\orders\cancel_payment.html:28
+msgid "There was a problem processing your payment"
+msgstr "حدثت مشكلة أثناء معالجة دفعتك"
+
+#: .\templates\orders\checkout.html:12 .\templates\orders\checkout.html:15
+msgid "Checkout"
+msgstr "الدفع"
+
+#: .\templates\orders\checkout.html:29
+msgid "Have a coupon? "
+msgstr "ألديك كود خصم؟"
+
+#: .\templates\orders\checkout.html:29
+msgid "Click here"
+msgstr "اضغط هنا"
+
+#: .\templates\orders\checkout.html:29
+msgid " to enter your code"
+msgstr "لإدخال الرمز الخاص بك"
+
+#: .\templates\orders\checkout.html:42
+msgid "Your Order"
+msgstr "طلبيتك"
+
+#: .\templates\orders\checkout.html:43 .\templates\orders\shoping_cart.html:51
+#: .\templates\products\products.html:14
+msgid "Products"
+msgstr "المنتجات"
+
+#: .\templates\orders\checkout.html:43
+msgid "Prices"
+msgstr "الأثمنة"
+
+#: .\templates\orders\checkout.html:49
+msgid "Subtotal"
+msgstr "المجموع الفرعي"
+
+#: .\templates\orders\checkout.html:51
+msgid "Discount"
+msgstr "تخفيض"
+
+#: .\templates\orders\checkout.html:53
+msgid "Total"
+msgstr "المجموع"
+
+#: .\templates\orders\checkout.html:60
+msgid "pay with stripe"
+msgstr "الدفع عن طريق"
+
+#: .\templates\orders\shoping_cart.html:13
+#: .\templates\orders\shoping_cart.html:16
+msgid "Shopping Cart"
+msgstr "عربة التسوق"
+
+#: .\templates\orders\shoping_cart.html:52
+#: .\templates\products\categories.html:29
+#: .\templates\products\favorite_products.html:48
+#: .\templates\products\products.html:44
+#: .\templates\products\search_product.html:26
+msgid "Price"
+msgstr "الثمن"
+
+#: .\templates\orders\shoping_cart.html:53
+msgid "Quantity"
+msgstr "الكمية"
+
+#: .\templates\orders\shoping_cart.html:90
+msgid "CONTINUE SHOPPING"
+msgstr "مواصلة التسوق"
+
+#: .\templates\orders\shoping_cart.html:101
+msgid "APPLY COUPON"
+msgstr "تطبيق القسيمة"
+
+#: .\templates\orders\shoping_cart.html:117
+#: .\templates\orders\shoping_cart.html:204
+msgid "Billing Details"
+msgstr "تفاصيل الفاتورة"
+
+#: .\templates\orders\shoping_cart.html:129
+#: .\templates\orders\shoping_cart.html:218
+msgid "Phone Number"
+msgstr "رقم الهاتف"
+
+#: .\templates\orders\shoping_cart.html:138
+#: .\templates\orders\shoping_cart.html:227
+msgid "Address 1"
+msgstr "العنوان 1"
+
+#: .\templates\orders\shoping_cart.html:144
+#: .\templates\orders\shoping_cart.html:233
+msgid "Address 2"
+msgstr "العنوان 2"
+
+#: .\templates\orders\shoping_cart.html:153
+#: .\templates\orders\shoping_cart.html:242
+msgid "Town/City"
+msgstr "المدينة"
+
+#: .\templates\orders\shoping_cart.html:159
+#: .\templates\orders\shoping_cart.html:248
+msgid "Postcode / ZIP"
+msgstr "بوست كود"
+
+#: .\templates\orders\shoping_cart.html:166
+#: .\templates\orders\shoping_cart.html:255
+msgid "Order notes"
+msgstr "ملاحظة"
+
+#: .\templates\orders\shoping_cart.html:177
+msgid "Cart Total"
+msgstr "إجمالي العربة"
+
+#: .\templates\orders\shoping_cart.html:179
+msgid "Subtotal "
+msgstr "المجموع الفرعي"
+
+#: .\templates\orders\shoping_cart.html:181
+msgid "Discount "
+msgstr "تخفيض"
+
+#: .\templates\orders\shoping_cart.html:183
+msgid "Total "
+msgstr "المجموع"
+
+#: .\templates\orders\shoping_cart.html:185
+msgid "PROCEED TO CHECKOUT"
+msgstr "الشروع في للدفع"
+
+#: .\templates\orders\shoping_cart.html:194
+msgid "empty cart !"
+msgstr "! عربتك فارغة "
+
+#: .\templates\orders\success_payment.html:13
+msgid "Your payment was successful"
+msgstr "عملية الدفع تمت بنجاح"
+
+#: .\templates\products\categories.html:18
+#: .\templates\products\favorite_products.html:37
+#: .\templates\products\products.html:33
+#: .\templates\products\search_product.html:15
+msgid "Department"
+msgstr "جميع الفئات"
+
+#: .\templates\products\categories.html:54
+#: .\templates\products\favorite_products.html:129
+#: .\templates\products\products.html:156
+msgid " Products found"
+msgstr "المنتجات المتاحة"
+
+#: .\templates\products\favorite_products.html:17
+msgid "Favorite Products"
+msgstr "المنتجات المفضلة"
+
+#: .\templates\products\favorite_products.html:20
+msgid "Favorits"
+msgstr "المفضلة"
+
+#: .\templates\products\favorite_products.html:66
+#: .\templates\products\home.html:175 .\templates\products\products.html:62
+msgid "Latest Products"
+msgstr "أحدث المنتجات"
+
+#: .\templates\products\favorite_products.html:171
+msgid "empty !"
+msgstr "! فارغة "
+
+#: .\templates\products\home.html:23
+msgid "FRUIT FRESH"
+msgstr "فواكه طازجة"
+
+#: .\templates\products\home.html:24
+msgid "Vegetable"
+msgstr "خضر"
+
+#: .\templates\products\home.html:24
+msgid "Organic"
+msgstr "طبيعية"
+
+#: .\templates\products\home.html:25
+msgid "Free Pickup and Delivery Available"
+msgstr "تتوفر خدمة الاستلام و التسليم مجانا"
+
+#: .\templates\products\home.html:26
+msgid "SHOP NOW"
+msgstr "تسوق الآن"
+
+#: .\templates\products\home.html:41
+msgid "Featured Product"
+msgstr "المنتج المميز"
+
+#: .\templates\products\home.html:215
+msgid "Top Rated Products"
+msgstr "المنتجات الأعلى تقييمًا"
+
+#: .\templates\products\home.html:280
+msgid "Review Products"
+msgstr "مراجعة المنتجات"
+
+#: .\templates\products\home.html:354
+msgid "From The Blog"
+msgstr "من المدونة"
+
+#: .\templates\products\product_detail.html:103
+msgid "ADD TO CARD"
+msgstr "أضف إلى البطاقة"
+
+#: .\templates\products\product_detail.html:107
+msgid "Availability"
+msgstr "التوفر"
+
+#: .\templates\products\product_detail.html:107
+msgid "In Stock"
+msgstr "في المخزن"
+
+#: .\templates\products\product_detail.html:108
+#| msgid "Shopping Cart"
+msgid "Shipping"
+msgstr "الشحن"
+
+#: .\templates\products\product_detail.html:108
+msgid "01 day shipping."
+msgstr "01 يوم الشحن."
+
+#: .\templates\products\product_detail.html:108
+msgid "Free pickup today"
+msgstr "شحن مجاني اليوم"
+
+#: .\templates\products\product_detail.html:109
+msgid "Weight"
+msgstr "وزن"
+
+#: .\templates\products\product_detail.html:109
+msgid "0.5 kg"
+msgstr "0.5 كجم"
+
+#: .\templates\products\product_detail.html:110
+msgid "Share on"
+msgstr "مشاركة على"
+
+#: .\templates\products\product_detail.html:127
+msgid "Description"
+msgstr "وصف"
+
+#: .\templates\products\product_detail.html:131
+msgid "Information"
+msgstr "معلومات التسليم"
+
+#: .\templates\products\product_detail.html:135
+msgid "Reviews"
+msgstr "التعليقات"
+
+#: .\templates\products\product_detail.html:141
+#: .\templates\products\product_detail.html:164
+msgid "Products Infomation"
+msgstr "معلومات المنتجات"
+
+#: .\templates\products\product_detail.html:195
+msgid "no reviews yet"
+msgstr "لا توجد مراجعات حتى الآن"
+
+#: .\templates\products\product_detail.html:203
+#| msgid "Your Order"
+msgid "Your review"
+msgstr "مراجعتك"
+
+#: .\templates\products\product_detail.html:233
+msgid "Related Product"
+msgstr "منتجات ذات صلة"
+
+#: .\templates\products\products.html:121
+msgid "Sale Off"
+msgstr "البيع معطل"
+
+#: .\templates\products\search_product.html:51
+msgid "Products found"
+msgstr "المنتجات المتاحة"
+
+#: .\templates\products\search_product.html:78
+msgid "Not Found!"
+msgstr "غير موجود!"
+
+#~ msgid "PLACE ORDER"
+#~ msgstr "وضع طلبيتك"
+
+#~ msgid " Upadate Cart"
+#~ msgstr "تحديث العربة"
+
+#~ msgid "Discount Codes"
+#~ msgstr "كود خصم"
+
+#~ msgid "Don"
+#~ msgstr "تم"
+
+#~ msgid "fullname"
+#~ msgstr "الاسم الكامل"
+
+#~ msgid "password"
+#~ msgstr "كلمة المرور"
+
+#~ msgid "Organi Shop"
+#~ msgstr "طبيعية"
+
+#~ msgid "Engish"
+#~ msgstr "الإنجليزية"
+
+#~ msgid "Arabic"
+#~ msgstr "العربية"
+
+#~ msgid "accounts/"
+#~ msgstr "حسابات/"
+
+#~ msgid "orders/"
+#~ msgstr "الطلبيات/"
+
+#~ msgid "blog/"
+#~ msgstr "مدونة/"
+
+#~ msgid "home/"
+#~ msgstr "الرئيسية/"

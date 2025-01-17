@@ -1,0 +1,713 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-07-17 19:34+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\templates\accounts\profile\user_profile.html:4
+msgid "My Profile"
+msgstr ""
+
+#: .\templates\accounts\registration\login.html:37
+#: .\templates\accounts\registration\signup.html:38
+#: .\templates\orders\shoping_cart.html:123
+#: .\templates\orders\shoping_cart.html:212
+msgid "Full Name"
+msgstr ""
+
+#: .\templates\accounts\registration\login.html:44
+#: .\templates\accounts\registration\signup.html:51
+msgid "Password"
+msgstr ""
+
+#: .\templates\accounts\registration\login.html:45
+msgid "forget password?"
+msgstr ""
+
+#: .\templates\accounts\registration\login.html:47
+msgid "LOGIN"
+msgstr ""
+
+#: .\templates\accounts\registration\login.html:51
+msgid "Do not have an account?"
+msgstr ""
+
+#: .\templates\accounts\registration\login.html:51
+msgid "Sign up"
+msgstr ""
+
+#: .\templates\accounts\registration\password_reset_form.html:13
+msgid "Change Password"
+msgstr ""
+
+#: .\templates\accounts\registration\password_reset_form.html:41
+msgid "Usrname or Email"
+msgstr ""
+
+#: .\templates\accounts\registration\password_reset_form.html:48
+msgid " New Password"
+msgstr ""
+
+#: .\templates\accounts\registration\password_reset_form.html:56
+msgid "Confirm New Password"
+msgstr ""
+
+#: .\templates\accounts\registration\password_reset_form.html:59
+msgid "DONE"
+msgstr ""
+
+#: .\templates\accounts\registration\password_reset_sent.html:13
+msgid "check to your email"
+msgstr ""
+
+#: .\templates\accounts\registration\reset_password.html:13
+msgid "Reset Password"
+msgstr ""
+
+#: .\templates\accounts\registration\reset_password.html:41
+#: .\templates\contact\contact.html:93
+msgid "Your Email"
+msgstr ""
+
+#: .\templates\accounts\registration\reset_password.html:43
+msgid "RESET"
+msgstr ""
+
+#: .\templates\accounts\registration\signup.html:13
+msgid "Signup"
+msgstr ""
+
+#: .\templates\accounts\registration\signup.html:44
+#: .\templates\contact\contact.html:51
+msgid "Email"
+msgstr ""
+
+#: .\templates\accounts\registration\signup.html:54
+msgid "Confirm Password"
+msgstr ""
+
+#: .\templates\accounts\registration\signup.html:56
+msgid "SIGNUP"
+msgstr ""
+
+#: .\templates\accounts\registration\signup.html:60
+msgid "Have an account?"
+msgstr ""
+
+#: .\templates\accounts\registration\signup.html:60 .\templates\base.html:153
+msgid "Login"
+msgstr ""
+
+#: .\templates\base.html:119 .\templates\blog\blog.html:15
+#: .\templates\blog\categories.html:15 .\templates\blog\search_blog.html:15
+#: .\templates\contact\contact.html:13 .\templates\orders\checkout.html:14
+#: .\templates\orders\shoping_cart.html:15
+#: .\templates\products\favorite_products.html:19
+#: .\templates\products\product_detail.html:16
+#: .\templates\products\products.html:16
+msgid "Home"
+msgstr ""
+
+#: .\templates\base.html:120 .\templates\products\products.html:17
+msgid "Shop"
+msgstr ""
+
+#: .\templates\base.html:121 .\templates\blog\blog.html:38
+#: .\templates\blog\blog_detail.html:38 .\templates\blog\categories.html:38
+#: .\templates\blog\search_blog.html:38
+msgid "Categories"
+msgstr ""
+
+#: .\templates\base.html:123 .\templates\base.html:205
+#: .\templates\products\categories.html:21
+#: .\templates\products\favorite_products.html:40
+#: .\templates\products\home.html:47 .\templates\products\products.html:36
+#: .\templates\products\search_product.html:18
+msgid "Vegetables"
+msgstr ""
+
+#: .\templates\base.html:124 .\templates\base.html:206
+#: .\templates\products\categories.html:22
+#: .\templates\products\favorite_products.html:41
+#: .\templates\products\home.html:46 .\templates\products\products.html:37
+#: .\templates\products\search_product.html:19
+msgid "Fruits"
+msgstr ""
+
+#: .\templates\base.html:125 .\templates\base.html:207
+#: .\templates\products\categories.html:23
+#: .\templates\products\favorite_products.html:42
+#: .\templates\products\home.html:50 .\templates\products\products.html:38
+#: .\templates\products\search_product.html:20
+msgid "Juice"
+msgstr ""
+
+#: .\templates\base.html:126 .\templates\base.html:204
+#: .\templates\products\categories.html:20
+#: .\templates\products\favorite_products.html:39
+#: .\templates\products\home.html:48 .\templates\products\products.html:35
+#: .\templates\products\search_product.html:17
+msgid "Meats"
+msgstr ""
+
+#: .\templates\base.html:127 .\templates\base.html:208
+#: .\templates\products\categories.html:24
+#: .\templates\products\favorite_products.html:43
+#: .\templates\products\home.html:49 .\templates\products\products.html:39
+#: .\templates\products\search_product.html:21
+msgid "Fastfood"
+msgstr ""
+
+#: .\templates\base.html:131 .\templates\blog\blog.html:13
+#: .\templates\blog\blog.html:16 .\templates\blog\categories.html:13
+#: .\templates\blog\categories.html:16 .\templates\blog\search_blog.html:13
+#: .\templates\blog\search_blog.html:16
+msgid "Blog"
+msgstr ""
+
+#: .\templates\base.html:132 .\templates\base.html:274
+msgid "Contact"
+msgstr ""
+
+#: .\templates\base.html:148
+msgid "Profile"
+msgstr ""
+
+#: .\templates\base.html:151
+msgid "Logout"
+msgstr ""
+
+#: .\templates\base.html:201
+msgid "All departments"
+msgstr ""
+
+#: .\templates\base.html:218
+msgid "What do yo u need?"
+msgstr ""
+
+#: .\templates\base.html:219
+msgid "SEARCH"
+msgstr ""
+
+#: .\templates\base.html:228
+msgid "support 24/7 time"
+msgstr ""
+
+#: .\templates\base.html:254
+msgid "Address: 60-49 Road 11378 Tiznit"
+msgstr ""
+
+#: .\templates\base.html:255
+msgid "Phone: +212 1.18.88.88"
+msgstr ""
+
+#: .\templates\base.html:256
+msgid "Email: ogani@gmail.com"
+msgstr ""
+
+#: .\templates\base.html:262
+msgid "Useful Links"
+msgstr ""
+
+#: .\templates\base.html:264
+msgid "About Us"
+msgstr ""
+
+#: .\templates\base.html:265
+msgid "About Our Shop"
+msgstr ""
+
+#: .\templates\base.html:266
+msgid "Secure Shopping"
+msgstr ""
+
+#: .\templates\base.html:267
+msgid "Delivery infomation"
+msgstr ""
+
+#: .\templates\base.html:268
+msgid "Privacy Policy"
+msgstr ""
+
+#: .\templates\base.html:269
+msgid "Our Sitemap"
+msgstr ""
+
+#: .\templates\base.html:272
+msgid "Who We Are"
+msgstr ""
+
+#: .\templates\base.html:273
+msgid "Our Services"
+msgstr ""
+
+#: .\templates\base.html:282
+msgid "Join Our Newsletter Now"
+msgstr ""
+
+#: .\templates\base.html:283
+msgid "Get E-mail updates about our latest shop and special offers."
+msgstr ""
+
+#: .\templates\base.html:285
+msgid "Enter your mail"
+msgstr ""
+
+#: .\templates\base.html:286
+msgid "Subscribe"
+msgstr ""
+
+#: .\templates\base.html:301
+msgid "Copyright"
+msgstr ""
+
+#: .\templates\base.html:301
+msgid " All rights reserved | "
+msgstr ""
+
+#: .\templates\blog\blog.html:40 .\templates\blog\blog_detail.html:40
+#: .\templates\blog\categories.html:40 .\templates\blog\search_blog.html:40
+#: .\templates\products\home.html:45
+msgid "All"
+msgstr ""
+
+#: .\templates\blog\blog.html:41 .\templates\blog\blog_detail.html:41
+#: .\templates\blog\categories.html:41
+msgid "Beauty"
+msgstr ""
+
+#: .\templates\blog\blog.html:42 .\templates\blog\blog_detail.html:42
+msgid "Food "
+msgstr ""
+
+#: .\templates\blog\blog.html:43 .\templates\blog\blog_detail.html:43
+#: .\templates\blog\categories.html:43
+msgid "Life Style "
+msgstr ""
+
+#: .\templates\blog\blog.html:44
+msgid "Travel "
+msgstr ""
+
+#: .\templates\blog\blog.html:66 .\templates\blog\categories.html:66
+#: .\templates\blog\search_blog.html:97
+msgid "READ MORE "
+msgstr ""
+
+#: .\templates\blog\blog_detail.html:16 .\templates\blog\blog_detail.html:50
+msgid "Comments"
+msgstr ""
+
+#: .\templates\blog\blog_detail.html:33 .\templates\blog\categories.html:33
+#: .\templates\blog\search_blog.html:33
+msgid "Search..."
+msgstr ""
+
+#: .\templates\blog\blog_detail.html:44 .\templates\blog\categories.html:44
+#: .\templates\blog\search_blog.html:44
+msgid "Travel"
+msgstr ""
+
+#: .\templates\blog\blog_detail.html:68 .\templates\contact\contact.html:96
+msgid "Your message"
+msgstr ""
+
+#: .\templates\blog\blog_detail.html:69
+#: .\templates\products\product_detail.html:204
+msgid "Add"
+msgstr ""
+
+#: .\templates\blog\blog_detail.html:108
+msgid "Categories:"
+msgstr ""
+
+#: .\templates\blog\blog_detail.html:109
+msgid "Tags:"
+msgstr ""
+
+#: .\templates\blog\blog_detail.html:134
+msgid "Post You May Like"
+msgstr ""
+
+#: .\templates\blog\categories.html:42 .\templates\blog\search_blog.html:42
+msgid "Food"
+msgstr ""
+
+#: .\templates\blog\search_blog.html:41
+msgid "Beauty "
+msgstr ""
+
+#: .\templates\blog\search_blog.html:43
+msgid "Life Style"
+msgstr ""
+
+#: .\templates\blog\search_blog.html:48
+msgid "Recent News"
+msgstr ""
+
+#: .\templates\blog\search_blog.html:55
+msgid "09 Kinds Of Vegetables"
+msgstr ""
+
+#: .\templates\blog\search_blog.html:55
+msgid "Protect The Liver"
+msgstr ""
+
+#: .\templates\blog\search_blog.html:56 .\templates\blog\search_blog.html:65
+#: .\templates\blog\search_blog.html:74
+msgid "MAR 05, 2019"
+msgstr ""
+
+#: .\templates\blog\search_blog.html:64
+msgid "Tips You To Balance"
+msgstr ""
+
+#: .\templates\blog\search_blog.html:64
+msgid "Nutrition Meal Day"
+msgstr ""
+
+#: .\templates\blog\search_blog.html:73
+msgid "4 Principles Help You Lose "
+msgstr ""
+
+#: .\templates\blog\search_blog.html:73
+msgid "Weight With Vegetables"
+msgstr ""
+
+#: .\templates\contact\contact.html:11 .\templates\contact\contact.html:14
+msgid "Contact Us"
+msgstr ""
+
+#: .\templates\contact\contact.html:30
+msgid "Phone"
+msgstr ""
+
+#: .\templates\contact\contact.html:37
+msgid "Address"
+msgstr ""
+
+#: .\templates\contact\contact.html:38
+msgid "60-49 Road 11378 Tiznit"
+msgstr ""
+
+#: .\templates\contact\contact.html:44
+msgid "Open time"
+msgstr ""
+
+#: .\templates\contact\contact.html:45
+msgid "10:00 am to 23:00 pm"
+msgstr ""
+
+#: .\templates\contact\contact.html:52
+msgid "ogani@gmail.com"
+msgstr ""
+
+#: .\templates\contact\contact.html:68
+msgid "Leave Message"
+msgstr ""
+
+#: .\templates\contact\contact.html:90
+msgid "Your name"
+msgstr ""
+
+#: .\templates\contact\contact.html:97
+msgid "SEND MESSAGE"
+msgstr ""
+
+#: .\templates\orders\cancel_payment.html:13
+msgid "Your payment has not been processed"
+msgstr ""
+
+#: .\templates\orders\cancel_payment.html:28
+msgid "There was a problem processing your payment"
+msgstr ""
+
+#: .\templates\orders\checkout.html:12 .\templates\orders\checkout.html:15
+msgid "Checkout"
+msgstr ""
+
+#: .\templates\orders\checkout.html:29
+msgid "Have a coupon? "
+msgstr ""
+
+#: .\templates\orders\checkout.html:29
+msgid "Click here"
+msgstr ""
+
+#: .\templates\orders\checkout.html:29
+msgid " to enter your code"
+msgstr ""
+
+#: .\templates\orders\checkout.html:42
+msgid "Your Order"
+msgstr ""
+
+#: .\templates\orders\checkout.html:43 .\templates\orders\shoping_cart.html:51
+#: .\templates\products\products.html:14
+msgid "Products"
+msgstr ""
+
+#: .\templates\orders\checkout.html:43
+msgid "Prices"
+msgstr ""
+
+#: .\templates\orders\checkout.html:49
+msgid "Subtotal"
+msgstr ""
+
+#: .\templates\orders\checkout.html:51
+msgid "Discount"
+msgstr ""
+
+#: .\templates\orders\checkout.html:53
+msgid "Total"
+msgstr ""
+
+#: .\templates\orders\checkout.html:60
+msgid "pay with stripe"
+msgstr ""
+
+#: .\templates\orders\shoping_cart.html:13
+#: .\templates\orders\shoping_cart.html:16
+msgid "Shopping Cart"
+msgstr ""
+
+#: .\templates\orders\shoping_cart.html:52
+#: .\templates\products\categories.html:29
+#: .\templates\products\favorite_products.html:48
+#: .\templates\products\products.html:44
+#: .\templates\products\search_product.html:26
+msgid "Price"
+msgstr ""
+
+#: .\templates\orders\shoping_cart.html:53
+msgid "Quantity"
+msgstr ""
+
+#: .\templates\orders\shoping_cart.html:90
+msgid "CONTINUE SHOPPING"
+msgstr ""
+
+#: .\templates\orders\shoping_cart.html:101
+msgid "APPLY COUPON"
+msgstr ""
+
+#: .\templates\orders\shoping_cart.html:117
+#: .\templates\orders\shoping_cart.html:204
+msgid "Billing Details"
+msgstr ""
+
+#: .\templates\orders\shoping_cart.html:129
+#: .\templates\orders\shoping_cart.html:218
+msgid "Phone Number"
+msgstr ""
+
+#: .\templates\orders\shoping_cart.html:138
+#: .\templates\orders\shoping_cart.html:227
+msgid "Address 1"
+msgstr ""
+
+#: .\templates\orders\shoping_cart.html:144
+#: .\templates\orders\shoping_cart.html:233
+msgid "Address 2"
+msgstr ""
+
+#: .\templates\orders\shoping_cart.html:153
+#: .\templates\orders\shoping_cart.html:242
+msgid "Town/City"
+msgstr ""
+
+#: .\templates\orders\shoping_cart.html:159
+#: .\templates\orders\shoping_cart.html:248
+msgid "Postcode / ZIP"
+msgstr ""
+
+#: .\templates\orders\shoping_cart.html:166
+#: .\templates\orders\shoping_cart.html:255
+msgid "Order notes"
+msgstr ""
+
+#: .\templates\orders\shoping_cart.html:177
+msgid "Cart Total"
+msgstr ""
+
+#: .\templates\orders\shoping_cart.html:179
+msgid "Subtotal "
+msgstr ""
+
+#: .\templates\orders\shoping_cart.html:181
+msgid "Discount "
+msgstr ""
+
+#: .\templates\orders\shoping_cart.html:183
+msgid "Total "
+msgstr ""
+
+#: .\templates\orders\shoping_cart.html:185
+msgid "PROCEED TO CHECKOUT"
+msgstr ""
+
+#: .\templates\orders\shoping_cart.html:194
+msgid "empty cart !"
+msgstr ""
+
+#: .\templates\orders\success_payment.html:13
+msgid "Your payment was successful"
+msgstr ""
+
+#: .\templates\products\categories.html:18
+#: .\templates\products\favorite_products.html:37
+#: .\templates\products\products.html:33
+#: .\templates\products\search_product.html:15
+msgid "Department"
+msgstr ""
+
+#: .\templates\products\categories.html:54
+#: .\templates\products\favorite_products.html:129
+#: .\templates\products\products.html:156
+msgid " Products found"
+msgstr ""
+
+#: .\templates\products\favorite_products.html:17
+msgid "Favorite Products"
+msgstr ""
+
+#: .\templates\products\favorite_products.html:20
+msgid "Favorits"
+msgstr ""
+
+#: .\templates\products\favorite_products.html:66
+#: .\templates\products\home.html:175 .\templates\products\products.html:62
+msgid "Latest Products"
+msgstr ""
+
+#: .\templates\products\favorite_products.html:171
+msgid "empty !"
+msgstr ""
+
+#: .\templates\products\home.html:23
+msgid "FRUIT FRESH"
+msgstr ""
+
+#: .\templates\products\home.html:24
+msgid "Vegetable"
+msgstr ""
+
+#: .\templates\products\home.html:24
+msgid "Organic"
+msgstr ""
+
+#: .\templates\products\home.html:25
+msgid "Free Pickup and Delivery Available"
+msgstr ""
+
+#: .\templates\products\home.html:26
+msgid "SHOP NOW"
+msgstr ""
+
+#: .\templates\products\home.html:41
+msgid "Featured Product"
+msgstr ""
+
+#: .\templates\products\home.html:215
+msgid "Top Rated Products"
+msgstr ""
+
+#: .\templates\products\home.html:280
+msgid "Review Products"
+msgstr ""
+
+#: .\templates\products\home.html:354
+msgid "From The Blog"
+msgstr ""
+
+#: .\templates\products\product_detail.html:103
+msgid "ADD TO CARD"
+msgstr ""
+
+#: .\templates\products\product_detail.html:107
+msgid "Availability"
+msgstr ""
+
+#: .\templates\products\product_detail.html:107
+msgid "In Stock"
+msgstr ""
+
+#: .\templates\products\product_detail.html:108
+msgid "Shipping"
+msgstr ""
+
+#: .\templates\products\product_detail.html:108
+msgid "01 day shipping."
+msgstr ""
+
+#: .\templates\products\product_detail.html:108
+msgid "Free pickup today"
+msgstr ""
+
+#: .\templates\products\product_detail.html:109
+msgid "Weight"
+msgstr ""
+
+#: .\templates\products\product_detail.html:109
+msgid "0.5 kg"
+msgstr ""
+
+#: .\templates\products\product_detail.html:110
+msgid "Share on"
+msgstr ""
+
+#: .\templates\products\product_detail.html:127
+msgid "Description"
+msgstr ""
+
+#: .\templates\products\product_detail.html:131
+msgid "Information"
+msgstr ""
+
+#: .\templates\products\product_detail.html:135
+msgid "Reviews"
+msgstr ""
+
+#: .\templates\products\product_detail.html:141
+#: .\templates\products\product_detail.html:164
+msgid "Products Infomation"
+msgstr ""
+
+#: .\templates\products\product_detail.html:195
+msgid "no reviews yet"
+msgstr ""
+
+#: .\templates\products\product_detail.html:203
+msgid "Your review"
+msgstr ""
+
+#: .\templates\products\product_detail.html:233
+msgid "Related Product"
+msgstr ""
+
+#: .\templates\products\products.html:121
+msgid "Sale Off"
+msgstr ""
+
+#: .\templates\products\search_product.html:51
+msgid "Products found"
+msgstr ""
+
+#: .\templates\products\search_product.html:78
+msgid "Not Found!"
+msgstr ""
