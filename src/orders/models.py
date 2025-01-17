@@ -11,6 +11,10 @@ class Order(models.Model):
     quantity = models.PositiveIntegerField(default=0)
     added_at = models.DateTimeField(auto_now=True)
     
+    def get_total_price(self):       
+        total = self.order.get_price() * self.quantity
+        return total
+    
     def  __str__(self):
         return f"{self.user.username}______{self.order}"
         

@@ -26,11 +26,21 @@ class Product(models.Model):
         self.slug = slugify(self.title)
         super(Product,self).save(*args,**kwargs)
         
+    def get_discount_percent(self):
+        percent = 100 * (self.price-self.discount )//self.price
+        return percent 
+        
+    def get_price(self):
+        if self.discount: 
+            return self.discount
+            
+        else : 
+            return self.price
+       
     def __str__(self):
         return self.title
         
-
-        
+    
 class ProductReview(models.Model):
     
     user = models.ForeignKey(User,on_delete=models.CASCADE)

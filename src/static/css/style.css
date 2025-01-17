@@ -1670,6 +1670,19 @@ ol {
 .product__details__pic__item img {
 	min-width: 100%;
 }
+.product__details__pic__item .product__discount__percent {
+	height: 35px;
+	width: 45px;
+	background: #dd2222;
+	border-radius: 10%;
+	font-size: 14px;
+	color: #ffffff;
+	line-height: 35px;
+	text-align: center;
+	position: absolute;
+	right: 20px;
+	top: 3px;
+}
 
 .product__details__pic__slider img {
 	cursor: pointer;
@@ -1705,6 +1718,14 @@ ol {
 	color: #dd2222;
 	font-weight: 600;
 	margin-bottom: 15px;
+}
+.product__details__text .product__details__price span {
+	display: inline-block;
+	font-weight: 400;
+	text-decoration: line-through;
+	margin-left: 10px;
+	color: #C8C1C4;
+	font-size: 20px;
 }
 
 .product__details__text p {

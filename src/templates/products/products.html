@@ -68,7 +68,7 @@
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <h6>{{item.title}}</h6>
-                                                <span>{{ item.price }}DH</span>
+                                                <span>{{ item.get_price }}DH</span>
                                             </div>
                                         </a>
                                       
@@ -84,7 +84,7 @@
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <h6>{{item.title}}</h6>
-                                                <span>{{ item.price }}DH</span>
+                                                <span>{{ item.get_price }}DH</span>
                                             </div>
                                         </a>
                                         
@@ -99,7 +99,7 @@
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <h6>{{item.title}}</h6>
-                                                <span>{{ item.price }}DH</span>
+                                                <span>{{ item.get_price }}DH</span>
                                             </div>
                                         </a>
                                       
@@ -126,7 +126,7 @@
                                         <div class="product__discount__item__pic set-bg"
                                             data-setbg="{{ product.image.url }}">
                                             
-                                    <div class="product__discount__percent">-{{ product.discount_percent }}%</div>
+                                    <div class="product__discount__percent">-{{ product.get_discount_percent }}%</div>
                 
                                             <ul class="product__item__pic__hover">
                                                 <li><a href="{% url 'products:add_to_favorites' product.slug %}" ><i class="fa fa-heart"></i></a></li>
@@ -136,7 +136,7 @@
                                         <div class="product__discount__item__text">
                                             
                                             <h5><a href="#">{{ product.title }}</a></h5>
-                                            <div class="product__item__price">${{ product.discount }}<span>${{ product.price }}</span></div>
+                                            <div class="product__item__price">{{ product.discount }}DH<span>${{ product.price }}</span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -157,23 +157,38 @@
                         </div>
                     </div>
                     <div class="row">
-						{% for product in product %}
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="{{ product.image.url }}">
-                                    <ul class="product__item__pic__hover">
-                                        <li><a href="{% url 'products:add_to_favorites' product.slug %}" ><i class="fa fa-heart"></i></a></li>
-                                        <li><a href="{% url 'products:product_detail' product.slug %}"><i class="fa fa-retweet"></i></a></li>
-                                        <li><a href="{% url 'orders:add_to_cart' product.slug %}"><i class="fa fa-shopping-cart"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
+						{% for  product in product %}
+                
+					<div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="product__discount__item">
+                            <div class="product__discount__item__pic set-bg" data-setbg="{{ product.image.url }}">
+                                {% if product.discount %}       
+								<div class="product__discount__percent">-{{ product.get_discount_percent }}%</div>
+								{% endif %}
+                                <ul class="product__item__pic__hover">
+                                    <li><a href="{% url 'products:add_to_favorites' product.slug %}" ><i class="fa fa-heart"></i></a></li>
+									<li><a href="{% url 'products:product_detail' product.slug %}"><i class="fa fa-retweet"		></i></a></li>
+									<li><a href="{% url 'orders:add_to_cart' product.slug %}"><i class="fa fa-shopping-cart"></i></a></li></ul>
+							</div>
+							{% if product.discount %}
+                            <div class="product__discount__item__text">                                     
+                                <h5><a href="#">{{ product.title }}</a></h5>
+								
+                                <div class="product__item__price">{{ product.discount }}DH<span>{{ product.price }}DH</span></div>
+								
+								
+								
+                            </div>
+							{% else %}
+							<div class="product__item__text">
                                     <h6><a href="#">{{ product.title }}</a></h6>
+									
                                     <h5>{{ product.price }}DH</h5>
                                 </div>
-                            </div>
+								{% endif %}
                         </div>
-						{% endfor %} 
+                    </div>
+				{% endfor %}
                     </div>
 					{% if product.has_other_pages %}
                     <div class="product__pagination">

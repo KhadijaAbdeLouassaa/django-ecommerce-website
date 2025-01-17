@@ -33,7 +33,7 @@
 
             <div class="checkout__form ">
 
-                <form method= 'POST' action="{% url 'order:checkout' %}">
+                <form method= 'POST' action="{% url 'orders:checkout' %}">
 				{% csrf_token %}
                     <div class="row ">
                        
@@ -43,7 +43,7 @@
                                 <div class="checkout__order__products">{% trans 'Products' %} <span>{% trans 'Prices' %}</span></div>
                                 <ul>
 									{% for item in orders %}
-                                    <li>{{item.order.title}} <span>{{item.order.price}}DH</span></li>
+                                    <li>{{item.order.title}} <span>{{item.order.get_price}}DH</span></li>
 									{% endfor %}
                                 </ul>
                                 <div class="checkout__order__subtotal">{% trans 'Subtotal' %} <span>{{subtotal}}DH</span></div>

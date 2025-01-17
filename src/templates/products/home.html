@@ -6,15 +6,23 @@
 {% if messages %}
 				{% for msg in messages %}
 				<div {% if msg.tags %}
-					 class= " text-center {{msg.tags}} alert alert-danger" role="alert"
+					 class= " text-center {{msg.tags}} alert
+					 {% if 'error' in msg.tags %}
+					  alert-danger
+					 {% else %}
+					 alert-success
+					 {% endif %}
+					 " role="alert"
 				     {% endif %}
 				>
+				{% if 'error' in  msg.tags %}
 				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
 				<path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5m.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
 				</svg>
-				
+				{% endif %}
 				{{msg}}
 				</div>
+				
 				{% endfor %}
 				{% endif %}
 
@@ -55,13 +63,31 @@
 				{% for product in product %}
 				{% for ctg in categories %}
 				{% if product.category.name == ctg.name %}
-                <div class="col-lg-3 col-md-4 col-sm-6 mix {{ctg.name}} ">
+				{%  if product.discount %}
+                <div class="col-lg-3 col-md-4 col-sm-6 mix {{ctg.name}}">
+                    <div class="product__discount__item">
+                        <div class="product__discount__item__pic set-bg" data-setbg="{{ product.image.url }}">                                      
+                            <div class="product__discount__percent">-{{ product.get_discount_percent }}%</div>                
+                            <ul class="product__item__pic__hover">
+                                <li><a href="{% url 'products:add_to_favorites' product.slug %}" ><i class="fa fa-heart"></i></a></li>
+								<li><a href="{% url 'products:product_detail' product.slug %}"><i class="fa fa-retweet"		></i></a></li>
+								<li><a href="{% url 'orders:add_to_cart' product.slug %}"><i class="fa fa-shopping-cart"></i></a></li>
+							</ul>
+						</div>
+                        <div class="product__discount__item__text">                                      
+                            <h5><a href="#">{{ product.title }}</a></h5>
+                            <div class="product__item__price">{{ product.discount }}DH<span>{{ product.price }}DH</span></div>
+                        </div>
+                    </div>
+                </div>
+				{% else %}
+				<div class="col-lg-3 col-md-4 col-sm-6 mix {{ctg.name}} ">
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="{{product.image.url}}">
                             <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="{% url 'products:add_to_favorites' product.slug %}"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="{% url 'products:product_detail' product.slug %}"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                <li><a href="{% url 'orders:add_to_cart' product.slug %}"><i class="fa fa-shopping-cart"></i></a></li>
                             </ul>
                         </div>
                         <div class="featured__item__text">
@@ -70,7 +96,7 @@
                         </div>
                     </div>
                 </div>
-				
+				{% endif %}
 				{% endif %}
 				{% endfor %}
                 
@@ -119,7 +145,7 @@
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <h6>{{item.title}}</h6>
-                                                <span>{{ item.price }}DH</span>
+                                                <span>{{ item.get_price }}DH</span>
                                             </div>
                                         </a>
                                       
@@ -135,7 +161,7 @@
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <h6>{{item.title}}</h6>
-                                                <span>{{ item.price }}DH</span>
+                                                <span>{{ item.get_price }}DH</span>
                                             </div>
                                         </a>
                                         
@@ -150,7 +176,7 @@
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <h6>{{item.title}}</h6>
-                                                <span>{{ item.price }}DH</span>
+                                                <span>{{ item.get_price }}DH</span>
                                             </div>
                                         </a>
                                       

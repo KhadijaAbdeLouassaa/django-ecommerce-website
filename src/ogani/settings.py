@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'orders',
     'products',
     'blog',
-    'compons',
+    'coupons',
     
     'rest_framework',
     
@@ -191,10 +191,10 @@ EMAIL_HOST_PASSWORD = "Your password"
 # payment section | Stripe
 
 # Publishable key
-STRIPE_PUBLISHABLE_KEY ='pk_test_51PUA67HjfnhNVn4SQeSKsfFAHtOOkgxQBXgj8uqaOVFhYCjvOLFgJdh0u6FpT45u13LfHPiPDUBpB79pxV0R44G500Z6ku1FSC'
+STRIPE_PUBLISHABLE_KEY ='Public Key'
 
 # Secret key
-STRIPE_SECRET_KEY = 'sk_test_51PUA67HjfnhNVn4SFuNQW84c4fCuW6cIO8ol91ADPm6sczjx879wv31TQW9X2CcRMR1SSzrSftTup4U1ZLMD6EJu00HqVkCnID' 
+STRIPE_SECRET_KEY = 'Secret Key' 
 STRIPE_API_VERSION = '2022-08-01'
 
 

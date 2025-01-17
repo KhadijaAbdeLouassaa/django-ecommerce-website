@@ -45,10 +45,6 @@ def products(request):
     page_num = request.GET.get('page')
     product = paginator.get_page(page_num)
     latest_products = Product.objects.filter(added_at__month=(datetime.now().month) )
-    for item in items :
-        if item.discount > 0 :
-            item.discount_percent = 100 * (item.price-item.discount )//item.price
-            
    
     
     return render(request,"products/products.html",{'product':product,'items':items,'latest_products':latest_products})
@@ -111,7 +107,7 @@ def add_to_favorites(request, slug):
     else :
         messages.add_message(request,messages.ERROR, "Please login ")
       
-    return redirect('products:product_detail',slug=slug) 
+    return redirect(request.META.get("HTTP_REFERER", "products:home")) 
 
     
 def remove_from_favorites(request, slug):
@@ -119,7 +115,7 @@ def remove_from_favorites(request, slug):
     user = UserProfile.objects.get(user = request.user)
     user.favorite_products.remove(product)
             
-    return redirect("products:favorite_products_page")
+    return redirect(request.META.get("HTTP_REFERER", "products:home")) 
     
      
 def contact(request):

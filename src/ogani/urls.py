@@ -27,7 +27,7 @@ urlpatterns = i18n_patterns(
     path('rosetta/',include('rosetta.urls')),
     path('', include('products.urls', namespace= 'products')),
     path('blog/', include('blog.urls', namespace= 'blog')),
-    path('compons/', include('compons.urls', namespace= 'compons')),
+    path('coupons/', include('coupons.urls', namespace= 'coupons')),
     path('api-auth/', include('rest_framework.urls')),
 )
 

@@ -51,6 +51,7 @@
                                     <th class="shoping__product">{% trans 'Products' %}</th>
                                     <th>{% trans 'Price' %}</th>
                                     <th>{% trans 'Quantity' %}</th>
+									<th>{% trans 'Total' %}</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -64,14 +65,16 @@
                                         <h5>{{ item.order.title }}</h5>
                                     </td>
                                     <td class="shoping__cart__price">
-                                        {{ item.order.price }}DH
+                                        {{ item.order.get_price }}DH
                                     </td>
                                     <td class="shoping__cart__quantity">
                                         <div class="quantity">
                                             {{item.quantity}}
                                         </div>
                                     </td>
-                                   
+                                   <td class="shoping__cart__price">   
+                                            {{item.get_total_price}}DH
+                                    </td>
                                     <td class="shoping__cart__item__close">
                                         <a href="{% url 'orders:remove_from_cart' item.id %}" ><span class="icon_close"></span></a>
                                     </td>
@@ -95,9 +98,9 @@
                    
                         <div class="shoping__discount">
                             
-                            <form method='POST' action="{% url 'compons:compon' %}">
+                            <form method='POST' action="{% url 'coupons:coupon' %}">
 								{% csrf_token %} 
-                                <input type="text" placeholder="Enter your coupon code" name="compon">
+                                <input type="text" placeholder="Enter your coupon code" name="coupon">
                                 <button type="submit" class="site-btn">{% trans 'APPLY COUPON' %}</button>
                             </form>
                         </div>
@@ -106,7 +109,7 @@
 				</div>
 				
 				 </div>
-				 <form method= 'POST' action=".">
+				 <form method= 'POST' action="{% url 'orders:shoping_cart' %}">
 				  <div class="row">
 				   
                 <div class="col-lg-6">
@@ -182,7 +185,7 @@
 							{% endif %}
                             <li>{% trans 'Total ' %}<span>{{total}}DH</span></li>
                         </ul>
-                        <button  type='submit' class="primary-btn" name='to_checkout_btn'>{% trans 'PROCEED TO CHECKOUT' %}</button>
+                        <button  type="submit" class="primary-btn" name="to_checkout_btn">{% trans 'PROCEED TO CHECKOUT' %}</button>
                     </div>
                 </div>
 				 

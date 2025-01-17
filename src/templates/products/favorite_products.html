@@ -132,20 +132,34 @@
                     <div class="row">
 						{% for product in favorite_product %}
                         <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="{{ product.image.url }}">
-                                    <ul class="product__item__pic__hover">
-                                        <li><a href="{% url 'products:remove_from_favorites' product.slug %}"><i class="fa fa-trash"></i></a></li>
-                                        <li><a href="{% url 'products:product_detail' product.slug %}"><i class="fa fa-retweet"></i></a></li>
-                                        <li><a href="{% url 'orders:add_to_cart' product.slug %}"><i class="fa fa-shopping-cart"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
+                        <div class="product__discount__item">
+                            <div class="product__discount__item__pic set-bg" data-setbg="{{ product.image.url }}">
+                                {% if product.discount %}       
+								<div class="product__discount__percent">-{{ product.get_discount_percent }}%</div>
+								{% endif %}
+                                <ul class="product__item__pic__hover">
+                                    <li><a href="{% url 'products:remove_from_favorites' product.slug %}"><i class="fa fa-trash"></i></a></li>
+									<li><a href="{% url 'products:product_detail' product.slug %}"><i class="fa fa-retweet"		></i></a></li>
+									<li><a href="{% url 'orders:add_to_cart' product.slug %}"><i class="fa fa-shopping-cart"></i></a></li></ul>
+							</div>
+							{% if product.discount %}
+                            <div class="product__discount__item__text">                                     
+                                <h5><a href="#">{{ product.title }}</a></h5>
+								
+                                <div class="product__item__price">{{ product.discount }}DH<span>{{ product.price }}DH</span></div>
+								
+								
+								
+                            </div>
+							{% else %}
+							<div class="product__item__text">
                                     <h6><a href="#">{{ product.title }}</a></h6>
+									
                                     <h5>{{ product.price }}DH</h5>
                                 </div>
-                            </div>
+								{% endif %}
                         </div>
+                    </div>
 						{% endfor %} 
                     </div>
 					{% if favorite_product.has_other_pages %}

@@ -8,7 +8,7 @@ from orders.models import Order
 def order_length(request):
     if request.user.is_authenticated :
         try : 
-            items = Order.objects.all()
+            items = Order.objects.filter(user=request.user)
             return {'order_length':len(items)}
            
         except Order.DoesNotExist :

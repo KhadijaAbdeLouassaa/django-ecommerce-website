@@ -63,6 +63,9 @@
                         <div class="product__details__pic__item">
                             <img class="product__details__pic__item--large"
                                 src="{{ product.image.url}}" alt="">
+								{% if product.discount %}
+								<div class="product__discount__percent">-{{ product.get_discount_percent }}%</div>
+								{% endif %}
                         </div>
                         <div class="product__details__pic__slider owl-carousel">
                             <img data-imgbigurl="{% static 'img/product/details/product-details-2.jpg' %}"
@@ -89,7 +92,11 @@
                             <i class="fa fa-star-half-o"></i>
                             <span>(18 reviews)</span>
                         </div>
+						{% if product.discount %}
+						<div class="product__details__price">{{ product.discount }}DH<span>{{ product.price }}DH</span></div>
+						{% else %}
                         <div class="product__details__price">{{ product.price }}DH</div>
+						{% endif %}
                         <p>{{ product.description}}</p>
 
                         <div class="product__details__quantity">
@@ -237,19 +244,33 @@
             <div class="row">
 			{% for  related in related_pro %}
                 <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="{{ related.image.url }}">
-                            <ul class="product__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="{% url 'products:product_detail' related.slug %}"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
+                    <div class="product__discount__item">
+                            <div class="product__discount__item__pic set-bg" data-setbg="{{ related.image.url }}">
+                                {% if related.discount %}       
+								<div class="product__discount__percent">-{{ related.get_discount_percent }}%</div>
+								{% endif %}
+                                <ul class="product__item__pic__hover">
+                                    <li><a href="{% url 'products:add_to_favorites' related.slug %}" ><i class="fa fa-heart"></i></a></li>
+									<li><a href="{% url 'products:product_detail' related.slug %}"><i class="fa fa-retweet"		></i></a></li>
+									<li><a href="{% url 'orders:add_to_cart' related.slug %}"><i class="fa fa-shopping-cart"></i></a></li></ul>
+							</div>
+							{% if related.discount %}
+                            <div class="product__discount__item__text">                                     
+                                <h5><a href="#">{{ related.title }}</a></h5>
+								
+                                <div class="product__item__price">{{ related.discount }}DH<span>{{ related.price }}DH</span></div>
+								
+								
+								
+                            </div>
+							{% else %}
+							<div class="product__item__text">
+                                    <h6><a href="#">{{ related.title }}</a></h6>
+									
+                                    <h5>{{ related.price }}DH</h5>
+                                </div>
+								{% endif %}
                         </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">{{ related.title }}</a></h6>
-                            <h5>{{ related.price }}DH</h5>
-                        </div>
-                    </div>
                 </div>
 				{% endfor %}
                 </div>
